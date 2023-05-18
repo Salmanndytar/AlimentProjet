@@ -1,0 +1,28 @@
+<div class = "main-contenair" >
+  <div class="row  no-flex-rwap" >
+    <div class="card col-md-3 mr-2" >
+      <div class="col" >
+        <div class="card mt-3 mb-3 border-non">
+          <h3 class="text-center"> Menus de left</h3>
+        </div>
+        <div> <app-menu></app-menu></div>
+
+      </div>
+    </div>
+    <div class=" card col-md-9 pl-0 pr-0 background-gry border-non"  >
+      <div class="col pl-0 pr-0 d-flex flex-column justify-content-between" >
+        <div class="card p-2 mb-2 min-height-60" >
+          <app-header></app-header>
+        </div>
+        <div class="card mb-2 " style="min-height: 450px">
+          <router-outlet></router-outlet>
+
+        </div>
+        <div class="card min-height-60" >
+          <app-footer></app-footer>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

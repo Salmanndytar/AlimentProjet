@@ -1,0 +1,26 @@
+<div class=" accordion" id="accordionExample">
+  <div class=" accordion-item" *ngFor="let  menu  of menuProperties">
+    <h2 class="card-header accordion-header" >
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapseOne'+ menu.id" aria-expanded="true" aria-controls="collapseOne">
+        <i class="{{menu.icone}}"></i>&nbsp;
+        {{menu.titre }}
+      </button>
+    </h2>
+    <div id="collapseOne{{menu.id}}" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item" *ngFor="let  smenu of menu.sousMenu" >
+            <a href="javascript: void(0);"(click)="navigate(smenu.url)">
+              <i class="{{smenu.icone}}"></i>&nbsp;
+              {{smenu.titre}}
+            </a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
