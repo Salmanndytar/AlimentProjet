@@ -15,6 +15,13 @@ import { DetailAlimentComponent } from './composant/detail-aliment/detail-alimen
 import { PaginationComponent } from './composant/pagination/pagination.component';
 import { BoutonActionComponent } from './composant/bouton-action/bouton-action.component';
 import { NouvelAlimentComponent } from './pages/aliment/nouvel-aliment/nouvel-aliment.component';
+import { JournalComponent } from './pages/journal/journal.component';
+import { DetailJournalComponent } from './composant/detail-journal/detail-journal.component';
+import { UsersComponent } from './pages/user/users/users.component';
+import { DetailUsersComponent } from './pages/user/detail-users/detail-users.component';
+import { NouveauRepasComponent } from './composant/nouveau-repas/nouveau-repas.component';
+import { DetailRepasComponent } from './composant/detail-repas/detail-repas.component';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +37,14 @@ import { NouvelAlimentComponent } from './pages/aliment/nouvel-aliment/nouvel-al
     DetailAlimentComponent,
     PaginationComponent,
     BoutonActionComponent,
-    NouvelAlimentComponent
+    NouvelAlimentComponent,
+    JournalComponent,
+    DetailJournalComponent,
+    UsersComponent,
+    DetailUsersComponent,
+    NouveauRepasComponent,
+    DetailRepasComponent,
+
   ],
   imports: [
     BrowserModule,

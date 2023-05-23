@@ -21,13 +21,46 @@ body{
   color: wheat;
 }
 .color-blan{
-  color: white;
+  color: white !important;
 }
 .color-vert{
   color: green;
 }
-.colo-body{
-
-  background-color: #eff2f5;
+.color-brune{
+  color: chocolate;
+}
+.color-grise{
+  color: dimgray;
+}
+.color-orange{
+  color: gold !important;
 }
 
+.colo-body{
+
+  background-color: #eff2f5 !important;
+}
+
+.min-height-body{
+  min-height: 600px;
+}
+.background-text {
+  font-size: 80px;
+  font-weight: 700;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-background-clip: text !important;
+  background-image: url('assets/Lumière-bleue.jpeg') !important;
+  width: 246px;
+  height: 189px;
+  color: transparent !important;
+}
+
+.multiple-shadow{
+
+
+  text-shadow: 0.3px 0.3px 0.02em #4d00d4, -0.4px -0.4px 0.1px #00ccff!important;
+  color: green!important;
+  font : 0.1px georgia serif !important;
+
+}

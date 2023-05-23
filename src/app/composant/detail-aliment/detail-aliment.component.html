@@ -1,4 +1,4 @@
-<div class="row border-solide m-1 d-flex ">
+<div class="row border-solide shadow-sm p-2 mb-3 bg-white rounded rounded d-flex ">
   <div class="col-md-2  mt-1 mb-1  ">
       <img src="assets/Artichaut.jpg" height="110" width="100px" >
   </div>
@@ -49,12 +49,64 @@
         <button class="btn btn-link color-vert"><i class="bi bi-pencil-fill"></i></button>
       </div>
       <div class="col-md-3">
-        <button class="btn btn-link color-red"><i class="bi bi-trash3 "></i></button>
+        <button class="btn btn-link color-red" ><i class="bi bi-trash3 "></i></button>
       </div>
       <div class="col-md-3">
-        <button class="btn btn-link "><i class="bi bi-list"></i></button>
+        <!-- Button trigger modal -->
+        <button class="btn btn-link "
+                data-bs-toggle="tooltip" data-bs-placement="top"
+                data-bs-custom-class="custom-tooltip"
+                data-bs-title="This top tooltip is themed via CSS variables.">
+          <i class="bi bi-list" data-bs-toggle="modal" data-bs-target="#exampleModal2"></i>
+        </button>
+      </div>
+      <div class="col-md-3">
+        <button class="btn btn-link color-vert"   (click)="nouvelAliment()" ><i class="fas fa-utensils"></i>
+
+        </button>
       </div>
     </div>
   </div>
-
 </div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Detail</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class=" modal-body colo-md-12">
+        <div class="row ">
+          <div class="col-md-11 d-flex flex-row mb-3">
+
+          </div>
+          <div class="d-flex flex-row mb-3">
+            <h2> <i class="bi bi-info-circle color-blue"> </i>&nbsp;&nbsp;Informations detaille</h2>
+          </div>
+          <div class="row ">
+            <div class="col-md-6">
+              <p>
+                Ajouter des informatis plus detaillees de l'alement conserne\nAinsi des graaphique et de pourcentage
+              </p>
+            </div>
+            <div class="col-md-6 ">
+
+
+            </div>
+          </div>
+        </div>
+        <div class="row d-flex flex-row-reverse  m-3">
+          <div class="col">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

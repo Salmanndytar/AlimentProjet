@@ -26,6 +26,12 @@ export class MenuComponent implements OnInit {
         icone: 'bi bi-bar-chart',
         url : 'statistic',
         titre : 'Statistic'
+      },
+      {
+        id : '12',
+        icone: '<i class=bi bi-journal-bookmark',
+        url : 'journal',
+        titre : 'Journal'
       }
     ],
 
@@ -33,7 +39,7 @@ export class MenuComponent implements OnInit {
 
     {
       id : '2',
-      icone: 'bi bi-egg-fried',
+      icone: 'fas fa-utensils',
       url : '',
       titre : ' Gestion d\'aliment',
       sousMenu : [
@@ -45,39 +51,65 @@ export class MenuComponent implements OnInit {
         },
         {
           id : '22',
-          icone: 'bi bi-egg',
+          icone: 'fas fa-list-alt',
           url : 'aliments',
-          titre : 'aliments'
+          titre : 'list aliments'
+        },
+        {
+          id : '23',
+          icone: 'fas fa-hamburger',
+          url : 'nouvelaliment',
+          titre : 'nouvel aliments'
         }
       ],
 
     },
     {
       id : '3',
-      icone: 'bi bi-people',
+      icone: 'fas fa-users-cog',
       url : '',
       titre : ' Gestion d\'utilisateur',
       sousMenu : [
         {
           id : '31',
-          icone: 'bi bi-node-plus',
+          icone: 'bi bi-people',
+          url : 'users',
+          titre : 'Utilisateurs'
+        },
+        {
+          id : '32',
+          icone: 'fas fa-id-card-alt',
+          url : '',
+          titre : 'Role(type user)'
+        },
+      ]
+    },
+    {
+      id : '4',
+      icone: 'fas fa-check-square',
+      url : '',
+      titre : ' font awsome',
+      sousMenu : [
+        {
+          id : '41',
+          icone: 'fa-regular fa-heart">',
           url : '',
           titre : 'diabetique'
         },
         {
-          id : '32',
+          id : '42',
           icone: 'bi bi-node-minus',
           url : '',
           titre : 'non-diabetique'
         },
         {
-          id : '33',
+          id : '43',
           icone: 'bi bi-prescription2',
           url : '',
           titre : 'medecin'
         },
         {
-          id : '34',
+          id : '44',
           icone: 'bi bi-person-check',
           url : '',
           titre : 'admin'
@@ -85,6 +117,7 @@ export class MenuComponent implements OnInit {
       ],
 
     }
+
 
 ];
 
