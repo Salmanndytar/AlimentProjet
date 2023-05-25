@@ -19,7 +19,7 @@ import { JournalComponent } from './pages/journal/journal.component';
 import { DetailJournalComponent } from './composant/detail-journal/detail-journal.component';
 import { UsersComponent } from './pages/user/users/users.component';
 import { DetailUsersComponent } from './pages/user/detail-users/detail-users.component';
-import { NouveauRepasComponent } from './composant/nouveau-repas/nouveau-repas.component';
+import { NouveauRepasComponent } from './pages/nouveau-repas/nouveau-repas.component';
 import { DetailRepasComponent } from './composant/detail-repas/detail-repas.component';
 import { QtAlimentComponent } from './composant/qt-aliment/qt-aliment.component';
 

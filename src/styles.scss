@@ -10,7 +10,16 @@ body{
 .min-height-60{
   height: 60px;
 }
-
+.no-flex-rwap{
+  flex-wrap: inherit !important;
+}
+.ml-2{
+  margin-left: 2px;
+}
+.border-right{
+  border-right: solid 1px ;
+  border-color: lightgray;
+}
 .color-red{
   color: red;
 }
@@ -44,23 +53,13 @@ body{
 .min-height-body{
   min-height: 600px;
 }
-.background-text {
-  font-size: 80px;
-  font-weight: 700;
-  -webkit-background-clip: text;
-  color: transparent;
-  -webkit-background-clip: text !important;
-  background-image: url('assets/Lumière-bleue.jpeg') !important;
-  width: 246px;
-  height: 189px;
-  color: transparent !important;
-}
-
-.multiple-shadow{
 
 
-  text-shadow: 0.3px 0.3px 0.02em #4d00d4, -0.4px -0.4px 0.1px #00ccff!important;
-  color: green!important;
-  font : 0.1px georgia serif !important;
-
-}
+//.multiple-shadow{
+//
+//
+//  text-shadow: 0.3px 0.3px 0.02em #4d00d4, -0.4px -0.4px 0.1px #00ccff!important;
+//  color: green!important;
+//  font : 0.1px georgia serif !important;
+//
+//}

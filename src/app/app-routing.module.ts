@@ -8,7 +8,7 @@ import {PageAlimentComponent} from "./pages/page-aliment/page-aliment.component"
 import {NouvelAlimentComponent} from "./pages/aliment/nouvel-aliment/nouvel-aliment.component";
 import {JournalComponent} from "./pages/journal/journal.component";
 import {UsersComponent} from "./pages/user/users/users.component";
-import {NouveauRepasComponent} from "./composant/nouveau-repas/nouveau-repas.component";
+import {NouveauRepasComponent} from "./pages/nouveau-repas/nouveau-repas.component";
 
 
 const routes: Routes = [
