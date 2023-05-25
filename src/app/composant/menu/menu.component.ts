@@ -11,7 +11,7 @@ export class MenuComponent implements OnInit {
   public menuProperties : Array<Menu> = [
     {
     id : '1',
-    icone: 'bi bi-graph-up-arrow',
+    icone: 'fas fa-chart-line',
     url : '',
     titre : 'Tableau de board',
     sousMenu : [
@@ -72,7 +72,7 @@ export class MenuComponent implements OnInit {
       sousMenu : [
         {
           id : '31',
-          icone: 'bi bi-people',
+          icone: 'fas fa-users',
           url : 'users',
           titre : 'Utilisateurs'
         },
