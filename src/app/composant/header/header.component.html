@@ -4,18 +4,45 @@
       <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
       <span class="input-group-text" id="addon-wrapping"><i class="bi bi-search"></i></span>
     </div>
-
   </div>
   <div class="col-md-3" >
     <div class="row " >
       <div class="col-md-7 text-end" >
         <span> Bonjour XY</span>
       </div>
-      <div class="col-md-4 ">
+      <div class="col-md-4 "
+           type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
         <img src="assets/user.png" class="rounded-circle ml-2" height="35px" width="35px"/>
       </div>
-
     </div>
-
   </div>
 </div>
+
+<!--offcanvas profil-->
+
+
+<div class="offcanvas offcanvas-end offcanvas " tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header d-flex justify-content-between">
+    <h2 class="offcanvas-title " id="offcanvasRightLabel">Profil</h2>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-header d-flex justify-content-center ">
+    <img src="assets/user.png" class="rounded-circle ml-2 " height="100px" width="100px"/>
+  </div>
+  <div class="offcanvas-body  ">
+    <div class="col-md-12 ">
+      <div class="row  text-center m-3">
+        <h3>Pavel Tokarev</h3>
+      </div>
+
+      <div class="row m-3 shadow-sm">
+        <button type="button" class="btn btn-primary"
+                (click)="profil()"
+                data-bs-dismiss="offcanvas" aria-label="Close">
+          Modifier profil
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+

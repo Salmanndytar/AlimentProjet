@@ -22,6 +22,7 @@ import { DetailUsersComponent } from './pages/user/detail-users/detail-users.com
 import { NouveauRepasComponent } from './pages/nouveau-repas/nouveau-repas.component';
 import { DetailRepasComponent } from './composant/detail-repas/detail-repas.component';
 import { QtAlimentComponent } from './composant/qt-aliment/qt-aliment.component';
+import { ProfilComponent } from './composant/profil/profil.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { QtAlimentComponent } from './composant/qt-aliment/qt-aliment.component'
     NouveauRepasComponent,
     DetailRepasComponent,
     QtAlimentComponent,
+    ProfilComponent,
 
   ],
   imports: [

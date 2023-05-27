@@ -9,6 +9,7 @@ import {NouvelAlimentComponent} from "./pages/aliment/nouvel-aliment/nouvel-alim
 import {JournalComponent} from "./pages/journal/journal.component";
 import {UsersComponent} from "./pages/user/users/users.component";
 import {NouveauRepasComponent} from "./pages/nouveau-repas/nouveau-repas.component";
+import {ProfilComponent} from "./composant/profil/profil.component";
 
 
 const routes: Routes = [
@@ -47,6 +48,10 @@ const routes: Routes = [
       {
         path : 'nouveauRepas',
         component : NouveauRepasComponent
+      },
+      {
+        path : 'profil',
+        component : ProfilComponent
       }
 
     ]
