@@ -23,6 +23,7 @@ import { NouveauRepasComponent } from './pages/nouveau-repas/nouveau-repas.compo
 import { DetailRepasComponent } from './composant/detail-repas/detail-repas.component';
 import { QtAlimentComponent } from './composant/qt-aliment/qt-aliment.component';
 import { ProfilComponent } from './composant/profil/profil.component';
+import { PasswordComponent } from './pages/password/password.component';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { ProfilComponent } from './composant/profil/profil.component';
     DetailRepasComponent,
     QtAlimentComponent,
     ProfilComponent,
+    PasswordComponent,
 
   ],
   imports: [

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Menu} from "../../composant/menu/menu";
 import {Incription} from "./incription";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-page-inscription',
@@ -21,7 +22,9 @@ public  rol: String[]=['noshow']
 
   };
 
-  constructor( ) {  }
+  constructor(
+    private router : Router
+  ) {  }
 
   ngOnInit(): void {
 
@@ -50,7 +53,10 @@ public  rol: String[]=['noshow']
     this.tab.splice(1,1,'hidden')
     this.tab.splice(3,3,'hidden')
 
-
   };
+  code(): void{
+    this.hidTwo()
+    this.router.navigate([''])
+  }
 
 }

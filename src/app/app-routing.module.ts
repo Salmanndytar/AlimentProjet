@@ -10,6 +10,7 @@ import {JournalComponent} from "./pages/journal/journal.component";
 import {UsersComponent} from "./pages/user/users/users.component";
 import {NouveauRepasComponent} from "./pages/nouveau-repas/nouveau-repas.component";
 import {ProfilComponent} from "./composant/profil/profil.component";
+import {PasswordComponent} from "./pages/password/password.component";
 
 
 const routes: Routes = [
@@ -20,6 +21,10 @@ const routes: Routes = [
   {
     path : 'inscription',
     component : PageInscriptionComponent
+  },
+  {
+    path : 'password',
+    component : PasswordComponent
   },
   {
     path : '',
@@ -53,6 +58,7 @@ const routes: Routes = [
         path : 'profil',
         component : ProfilComponent
       }
+
 
     ]
 

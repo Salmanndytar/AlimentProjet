@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Router} from "@angular/router";
 
 @Component({
@@ -8,6 +8,11 @@ import {Router} from "@angular/router";
 })
 export class HeaderComponent implements OnInit {
 
+  @Output()
+  onclick = new EventEmitter;
+  boutOnclick():void{
+    this.onclick.emit();
+  }
   constructor(private  router: Router) { }
 
   ngOnInit(): void {
