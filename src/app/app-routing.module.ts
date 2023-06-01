@@ -56,7 +56,13 @@ const routes: Routes = [
       },
       {
         path : 'profil',
-        component : ProfilComponent
+        component : ProfilComponent,
+        // injecter de donnee dans router puis recuper dans son composant ex: profil
+         data:{
+            var1: 'val1',
+           var2: 'val2'
+          }
+
       }
 
 
