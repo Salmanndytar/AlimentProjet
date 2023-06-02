@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Router} from "@angular/router";
 
 @Component({
@@ -7,6 +7,14 @@ import {Router} from "@angular/router";
   styleUrls: ['./detail-aliment.component.scss']
 })
 export class DetailAlimentComponent implements OnInit {
+  @Input()
+  isUpdatValid = true
+  @Input()
+  isDeleteValide = true
+  @Input()
+  isDatailValide = true
+  @Input()
+  isEatValide =true
 
   constructor(
     private router : Router

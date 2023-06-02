@@ -67,28 +67,23 @@
     <div class="row mt-4 ">
 
       <div class="col-md-3">
-        <button class="btn btn-link color-vert"><i class="bi bi-pencil-fill"></i></button>
+        <button class="btn btn-link color-vert"><i class="bi bi-pencil-fill" *ngIf="isUpdatValid"></i></button>
       </div>
       <div class="col-md-3">
-        <button class="btn btn-link color-red" ><i class="bi bi-trash3 "></i></button>
+        <button class="btn btn-link color-red" ><i class="bi bi-trash3 "*ngIf="isDeleteValide"></i></button>
       </div>
       <div class="col-md-3">
         <!-- Button trigger modal -->
-        <button class="btn btn-link "
-                data-bs-toggle="tooltip" data-bs-placement="top"
-                data-bs-custom-class="custom-tooltip"
-                data-bs-title="This top tooltip is themed via CSS variables.">
-          <i class="bi bi-list" data-bs-toggle="modal" data-bs-target="#exampleModal2"></i>
-        </button>
+        <button class="btn btn-link "><i class="bi bi-list" *ngIf="isDatailValide"></i></button>
       </div>
       <div class="col-md-3">
-        <button class="btn btn-link color-vert"   (click)="nouvelAliment()" ><i class="fas fa-utensils"></i>
-
+        <button class="btn btn-link color-vert"
+                (click)="nouvelAliment()"
+                *ngIf="isEatValide" >
+          <i class="fas fa-utensils"></i>
         </button>
       </div>
     </div>
   </div>
 </div>
-
-
-
+</div>

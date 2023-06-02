@@ -19,11 +19,15 @@ import { JournalComponent } from './pages/journal/journal.component';
 import { DetailJournalComponent } from './composant/detail-journal/detail-journal.component';
 import { UsersComponent } from './pages/user/users/users.component';
 import { DetailUsersComponent } from './pages/user/detail-users/detail-users.component';
-import { NouveauRepasComponent } from './pages/nouveau-repas/nouveau-repas.component';
+import { NouveauRepasComponent } from './pages/page-repas/nouveau-repas/nouveau-repas.component';
 import { DetailRepasComponent } from './composant/detail-repas/detail-repas.component';
 import { QtAlimentComponent } from './composant/qt-aliment/qt-aliment.component';
 import { ProfilComponent } from './composant/profil/profil.component';
 import { PasswordComponent } from './pages/password/password.component';
+import { ListRepasComponent } from './pages/page-repas/list-repas/list-repas.component';
+import { RepasComponent } from './pages/page-repas/repas/repas.component';
+import {FormsModule} from "@angular/forms";
+import { CosommerComponent } from './composant/cosommer/cosommer.component';
 
 
 @NgModule({
@@ -50,12 +54,16 @@ import { PasswordComponent } from './pages/password/password.component';
     QtAlimentComponent,
     ProfilComponent,
     PasswordComponent,
+    ListRepasComponent,
+    RepasComponent,
+    CosommerComponent,
 
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

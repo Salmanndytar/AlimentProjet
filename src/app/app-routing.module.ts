@@ -8,9 +8,11 @@ import {PageAlimentComponent} from "./pages/page-aliment/page-aliment.component"
 import {NouvelAlimentComponent} from "./pages/aliment/nouvel-aliment/nouvel-aliment.component";
 import {JournalComponent} from "./pages/journal/journal.component";
 import {UsersComponent} from "./pages/user/users/users.component";
-import {NouveauRepasComponent} from "./pages/nouveau-repas/nouveau-repas.component";
+import {NouveauRepasComponent} from "./pages/page-repas/nouveau-repas/nouveau-repas.component";
 import {ProfilComponent} from "./composant/profil/profil.component";
 import {PasswordComponent} from "./pages/password/password.component";
+import {RepasComponent} from "./pages/page-repas/repas/repas.component";
+import {CosommerComponent} from "./composant/cosommer/cosommer.component";
 
 
 const routes: Routes = [
@@ -42,6 +44,7 @@ const routes: Routes = [
         path : 'nouvelaliment',
         component : NouvelAlimentComponent
       }
+
       ,{
         path : 'journal',
         component : JournalComponent
@@ -53,6 +56,14 @@ const routes: Routes = [
       {
         path : 'nouveauRepas',
         component : NouveauRepasComponent
+      },
+      {
+        path : 'repas',
+        component : RepasComponent
+      },
+      {
+        path : 'consommer',
+        component : CosommerComponent
       },
       {
         path : 'profil',
