@@ -28,6 +28,7 @@ import { ListRepasComponent } from './pages/page-repas/list-repas/list-repas.com
 import { RepasComponent } from './pages/page-repas/repas/repas.component';
 import {FormsModule} from "@angular/forms";
 import { CosommerComponent } from './composant/cosommer/cosommer.component';
+import { LabelComponent } from './composant/label/label.component';
 
 
 @NgModule({
@@ -57,6 +58,7 @@ import { CosommerComponent } from './composant/cosommer/cosommer.component';
     ListRepasComponent,
     RepasComponent,
     CosommerComponent,
+    LabelComponent,
 
   ],
     imports: [

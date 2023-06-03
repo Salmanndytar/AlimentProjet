@@ -66,6 +66,43 @@ export class MenuComponent implements OnInit {
     },
     {
       id : '3',
+      icone: 'fas fa-utensils',
+      url : 'repas',
+      titre : 'Mes repas',
+      sousMenu : [
+        {
+          id : '21',
+          icone: 'bi bi-bookmark',
+          url : 'nouveauRepas',
+          titre : 'Nouveau repas'
+        },
+        {
+          id : '22',
+          icone: 'fas fa-list-alt',
+          url : 'repas',
+          titre : 'mes repas'
+        }
+      ],
+    },
+    {
+      id : '4',
+      icone: 'fas fa-utensils',
+      url : 'consommer',
+      titre : 'Enregistrer une consommation',
+      sousMenu : [
+        {
+          id : '21',
+          icone: 'bi bi-bookmark',
+          url : 'consommer',
+          titre : 'Nouvelle consommation'
+        }
+
+      ],
+
+    }
+    ,
+    {
+      id : '5',
       icone: 'fas fa-users-cog',
       url : '',
       titre : ' Gestion d\'utilisateur',
@@ -85,7 +122,7 @@ export class MenuComponent implements OnInit {
       ]
     },
     {
-      id : '4',
+      id : '6',
       icone: 'fas fa-check-square',
       url : '',
       titre : ' font awsome',

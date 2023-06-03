@@ -8,6 +8,8 @@ import {Router} from "@angular/router";
 })
 export class PageAlimentComponent implements OnInit {
 
+
+
   constructor(
     private router : Router
   ) { }

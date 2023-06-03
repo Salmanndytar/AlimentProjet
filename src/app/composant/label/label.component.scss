@@ -1,0 +1,17 @@
+.label-parent{
+  position: relative;
+
+}
+.label-child{
+  border-radius: 5px;
+  padding: 3px;
+  position: absolute;
+  width: 100%;
+  height: auto;
+  top: 100%;
+  left: 0;
+  opacity: 50%;
+  background: black;
+  //  margin-left: -50%;
+
+}
