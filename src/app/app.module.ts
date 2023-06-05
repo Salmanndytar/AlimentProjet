@@ -29,6 +29,13 @@ import { RepasComponent } from './pages/page-repas/repas/repas.component';
 import {FormsModule} from "@angular/forms";
 import { CosommerComponent } from './composant/cosommer/cosommer.component';
 import { LabelComponent } from './composant/label/label.component';
+import { PageTacheComponent } from './pages/page-tache/page-tache.component';
+import { GlycemieComponent } from './composant/detail-taches/glycemie/glycemie.component';
+import { PoidsComponent } from './composant/detail-taches/poids/poids.component';
+import { SportComponent } from './composant/detail-taches/sport/sport.component';
+import { MedicamentComponent } from './composant/detail-taches/medicament/medicament.component';
+import { HemoglobineComponent } from './composant/detail-taches/hemoglobine/hemoglobine.component';
+import { TensionComponent } from './composant/detail-taches/tension/tension.component';
 
 
 @NgModule({
@@ -59,6 +66,13 @@ import { LabelComponent } from './composant/label/label.component';
     RepasComponent,
     CosommerComponent,
     LabelComponent,
+    PageTacheComponent,
+    GlycemieComponent,
+    PoidsComponent,
+    SportComponent,
+    MedicamentComponent,
+    HemoglobineComponent,
+    TensionComponent,
 
   ],
     imports: [

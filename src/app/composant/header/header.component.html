@@ -10,14 +10,17 @@
 <!--  Filtre-->
   <div class="col">
     <div class="col-md-2 " >
-      <button (click)="boutOnclick()"  class="btn" type="button"data-bs-toggle="modal" data-bs-target="#staticBackdrop" >
-        <i class="bi bi-filter-square-fill color-vert"></i>
+      <button (click)="boutOnclick()"  class="btn label-parent " type="button"data-bs-toggle="modal" data-bs-target="#staticBackdrop" >
+        <i class="bi bi-filter-square-fill color-vert  "
+           (mouseout)="mousseout(9)" (mouseenter)="moussenter(9)">
+        </i>
+        <app-label [isVisible] = val[9] msg="Fitre aliment " ></app-label>
       </button>
     </div>
 
 
     <!-- Modal -->
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog" >
         <div class="modal-content">
           <div class="modal-header">
@@ -67,7 +70,7 @@
 <!--offcanvas profil-->
 
 
-<div class="offcanvas offcanvas-end offcanvas " tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+<div class="offcanvas offcanvas-end offcanvas parent " tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
   <div class="offcanvas-header d-flex justify-content-between">
     <h2 class="offcanvas-title " id="offcanvasRightLabel">Profil</h2>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>

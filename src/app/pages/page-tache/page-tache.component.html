@@ -1,0 +1,80 @@
+<div class="col d-flex flex-column justify-content-between   ">
+  <div class="row m-3 shadow-sm">
+    <h1> <i class="fas fa-clipboard-check color-vert"></i>&nbsp; Enregistrer mes tâches quotidienne</h1>
+  </div>
+  <div class="row m-3 shadow-sm ">
+    <div class="col-md-4 me-0 " >
+      <img src="assets/pic.jpg "width="240px" height="240px" type="button" (click)="clickImg('Glycemie',0)">
+     <div class="row text-gras mb-2">
+       <span>Glycémie</span>
+     </div>
+    </div>
+    <div class="col-md-4 me-0 ms-0" >
+      <img src="assets/poids.jpg "  width="240px" height="240px" type="button" (click)="clickImg('Poids',1)">
+      <div class="row text-gras mb-2">
+        <span>Enregistrer le poids</span>
+      </div>
+    </div>
+    <div class="col-md-4  ms-0"> <img src="assets/tapi.jpg"width="240px"  height="240px" type="button" (click)="clickImg('Sport',2)">
+      <div class="row text-gras mb-2">
+        <span>Execice physique</span>
+      </div>
+    </div>
+  </div>
+  <div class="row m-3 shadow-sm">
+    <div class="col-md-4 me-0 " > <img src="assets/boiteMedoc.jpg  "width="240px" height="240px" type="button" (click)="clickImg('Médicament',3)">
+      <div class="row text-gras mb-2">
+        <span>Médicaments</span>
+      </div>
+    </div>
+    <div class="col-md-4 me-0 ms-0"> <img src="assets/tension.jpg  "width="240px" height="240px"  type="button" (click)="clickImg('Tension',4)">
+      <div class="row text-gras mb-2">
+        <span>Enregistrer la tension</span>
+      </div>
+    </div>
+    <div class="col-md-4  ms-0"> <img src="assets/hemoglobine.jpg "width="240px" height="240px"  type="button" (click)="clickImg('Hémoglobine',5)">
+      <div class="row text-gras mb-2">
+        <span>Hémoglobine glyqué</span>
+      </div>
+    </div>
+  </div>
+
+
+<!--  les taches -->
+  <div class="accordion-item  {{position}}     ">
+    <div id="collapseTreeId" class="accordion-collapse collapse {{show}}" aria-labelledby="headingTreeId" data-bs-parent="#collapsePrTreeId">
+
+      <div class="col text-end me-3">
+        <button class="btn-close"  (click)="clos()"    ></button>
+      </div>
+      <div class="accordion-body m-3  " >
+        <div class=" row m-3">
+          <div class="col-md-6">
+            <h3> {{titre}}</h3>
+          </div>
+          <div class="col-md-3">
+            <select class="form-select m-1" aria-label="Default select example">
+              <option selected>Selectionner type repas</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <input class="form-control form-control-sm m-1 p-2" type="date" placeholder="" aria-label=".form-control-sm example">
+          </div>
+        </div>
+         <app-glycemie *ngIf="isView[0]"></app-glycemie>
+        <app-poids *ngIf="isView[1]"></app-poids >
+        <app-sport *ngIf="isView[2]"></app-sport >
+        <app-medicament *ngIf="isView[3]"></app-medicament >
+        <app-tension *ngIf="isView[4]"></app-tension >
+        <app-hemoglobine *ngIf="isView[5]"></app-hemoglobine >
+      </div>
+    </div>
+  </div>
+
+
+
+
+</div>

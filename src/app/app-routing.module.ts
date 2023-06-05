@@ -13,6 +13,7 @@ import {ProfilComponent} from "./composant/profil/profil.component";
 import {PasswordComponent} from "./pages/password/password.component";
 import {RepasComponent} from "./pages/page-repas/repas/repas.component";
 import {CosommerComponent} from "./composant/cosommer/cosommer.component";
+import {PageTacheComponent} from "./pages/page-tache/page-tache.component";
 
 
 const routes: Routes = [
@@ -64,6 +65,10 @@ const routes: Routes = [
       {
         path : 'consommer',
         component : CosommerComponent
+      },
+      {
+        path : 'taches',
+        component : PageTacheComponent
       },
       {
         path : 'profil',

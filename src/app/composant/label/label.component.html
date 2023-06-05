@@ -1,4 +1,4 @@
 
-<span class="label-child " [hidden]="isLabelView[0]" >
-         {{msg}}
-        </span>
+<span class="label-child " *ngIf="isVisible">
+ {{msg}}
+</span>
