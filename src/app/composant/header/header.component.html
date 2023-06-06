@@ -56,12 +56,21 @@
 
   <div class="col-md-3" >
     <div class="row " >
-      <div class="col-md-7 text-end" >
-        <span> Bonjour XY</span>
+      <div class="col-md-3 text-end mt-1 "  >
+        <button [routerLink]="['/login']"  class=" btn btn-link label-parent"> <i class="fas fa-wifi "
+          (mouseout)="mousseout(0)" (mouseenter)="moussenter(0)"></i>
+          <app-label [isVisible] = val[0] msg="Veillez s'inscrir " ></app-label>
+        </button>
       </div>
-      <div class="col-md-4 "
+      <div class="col-md-3 text-end mt-1" >
+        <button [routerLink]="['/inscription']"  class="btn btn-link label-parent">   <i class="fas fa-pencil-alt "
+           (mouseout)="mousseout(1)" (mouseenter)="moussenter(1)"></i>
+          <app-label [isVisible] = val[1] msg="Veillez se connecter " ></app-label>
+        </button>
+      </div>
+      <div class="col-md-4 text-end"
            type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-        <img src="assets/user.png" class="rounded-circle ml-2" height="35px" width="35px"/>
+        <img src="assets/user.png" class="rounded-circle " height="35px" width="35px"/>
       </div>
     </div>
   </div>
@@ -70,7 +79,7 @@
 <!--offcanvas profil-->
 
 
-<div class="offcanvas offcanvas-end offcanvas parent " tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+<div class="offcanvas offcanvas-end offcanvas  " tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
   <div class="offcanvas-header d-flex justify-content-between">
     <h2 class="offcanvas-title " id="offcanvasRightLabel">Profil</h2>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>

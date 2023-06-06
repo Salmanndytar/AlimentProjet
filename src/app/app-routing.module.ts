@@ -19,7 +19,11 @@ import {PageTacheComponent} from "./pages/page-tache/page-tache.component";
 const routes: Routes = [
   {
     path : 'login',
-    component : PageLoginComponent
+    component : PageLoginComponent  ,
+    data:{
+      role: 'val1'
+
+    }
   },
   {
     path : 'inscription',

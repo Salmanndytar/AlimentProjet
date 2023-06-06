@@ -36,6 +36,10 @@ import { SportComponent } from './composant/detail-taches/sport/sport.component'
 import { MedicamentComponent } from './composant/detail-taches/medicament/medicament.component';
 import { HemoglobineComponent } from './composant/detail-taches/hemoglobine/hemoglobine.component';
 import { TensionComponent } from './composant/detail-taches/tension/tension.component';
+import { MenuAdminComponent } from './composant/detail-menu/menu-admin/menu-admin.component';
+import { MenuMedecinComponent } from './composant/detail-menu/menu-medecin/menu-medecin.component';
+import { MenuDiabetiqueComponent } from './composant/detail-menu/menu-diabetique/menu-diabetique.component';
+import { MenuAutreComponent } from './composant/detail-menu/menu-autre/menu-autre.component';
 
 
 @NgModule({
@@ -73,6 +77,10 @@ import { TensionComponent } from './composant/detail-taches/tension/tension.comp
     MedicamentComponent,
     HemoglobineComponent,
     TensionComponent,
+    MenuAdminComponent,
+    MenuMedecinComponent,
+    MenuDiabetiqueComponent,
+    MenuAutreComponent,
 
   ],
     imports: [

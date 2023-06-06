@@ -9,17 +9,19 @@
     <div class="card-body">
       <form>
         <div class="mb-3">
-          <input type="email" class="form-control" placeholder="Email" aria-describedby="emailHelp">
+          <input type="email" class="form-control" placeholder="Email" id="email" aria-describedby="emailHelp">
         </div>
         <div class="mb-3">
           <input type="password" class="form-control" placeholder="Password">
         </div>
         <div class="mb-3 d-flex justify-content-between">
           <a [routerLink]="['/password']"  class="btn shadow-sm"><i class="fas fa-spinner fa-spin"></i>&nbsp;Mot de pass oublié</a>
-          <button  [routerLink]="['']" type="submit" class="btn btn-primary"><i class="bi bi-check2-all"></i>&nbsp;Se connecter</button>
+          <button (click)="loginok()" type="submit" class="btn btn-primary"><i class="bi bi-check2-all"></i>&nbsp;Se connecter</button>
+<!--          <button  [routerLink]="['']"[queryParams]="{ role: 'admin' }" type="submit" class="btn btn-primary"><i class="bi bi-check2-all"></i>&nbsp;Se connecter</button>-->
         </div>
         <div class="row m-1 shadow-lg ">
-          <button  type="submit" class="btn text-gras btn-warning "><i class="fab fa-google-plus fa-spin"></i>&nbsp;google</button>
+          <button  type="submit" class="btn text-gras btn-warning ">
+            <i class="fab fa-google-plus fa-spin"></i>&nbsp;google</button>
         </div>
 
       </form>

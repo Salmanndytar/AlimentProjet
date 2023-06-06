@@ -1,0 +1,96 @@
+<div class=" row m-3" xmlns="http://www.w3.org/1999/html">
+  <div class="col-md-5">
+    <h3> Enregistrer la prise de médoc</h3>
+  </div>
+  <div class="col-md-3">
+    <select class="form-select m-1" aria-label="Default select example">
+      <option value="-1">-- Réference: --</option>
+
+      <optgroup label="Dîner">
+        <option>Après dîner</option>
+        <option>Avant dîner</option>
+      </optgroup>
+      <optgroup label="Peit-dejeuner">
+        <option>Avant petit-dejeuner</option>
+        <option>Après prtit-dejeuner</option>
+      </optgroup>
+      <optgroup label="Dejeuner">
+        <option>Avant dejeuner</option>
+        <option>Après dejeuner</option>
+      </optgroup>
+
+    </select>
+  </div>
+  <div class="col-md-2">
+    <input class="form-control form-control-sm m-1 p-2" type="date" placeholder="" aria-label=".form-control-sm example">
+  </div>
+  <div class="col-md-2">
+    <input class="form-control form-control-sm m-1 p-2" type="time" placeholder="" aria-label=".form-control-sm example">
+  </div>
+  <div class="row mt-5">
+    <div class="col">
+      <button class="btn shadow-sm m-1 p-2 parent" type="button">
+        <img src="assets/boiteMedoc.jpg" height="25px" width="50px"
+             (mouseout)="mouseout(0)" (mouseenter)="moussenter(0)">
+        <app-label
+          msg="Ajouter nouveau médicament exemple :<<Metformine Sandoz 850mg>>"
+          [isVisible]="isVisible[0]"
+        ></app-label>
+      </button>
+    </div>
+  </div>
+  <div class="row ">
+    <div class="col-md-4 me-0">
+      <select class="form-select m-1" aria-label="Default select example">
+        <option value="-1">-- Médicaments: --</option>
+          <option>Médeoc 1r</option>
+          <option>Médeoc 2</option>
+          <option>Médeoc 3</option>
+          <option>Médeoc 4</option>
+          <option>Médeoc 5</option>
+          <option>Médeoc 6</option>
+          <option>Médeoc ...</option>
+          <option>Médeoc ...</option>
+          <option>Médeoc ...</option>
+
+      </select>
+    </div>
+    <div class="col-md-2 ">
+      <button class="btn p-1 me-0 text-start parent" type="button">
+        <app-label
+          msg="Ajouter à la liste médoc pris"
+          [isVisible]="isVisible[1]">
+        </app-label>
+        <i class="fa fa-check"  (mouseout)="mouseout(1)" (mouseenter)="moussenter(1)"></i>
+       </button>
+    </div>
+    <div class="col-md-6">
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">num</th>
+          <th scope="col">Nom médicament</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Metformine Sandoz 850mg</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Lieutin-10 500mg</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td colspan="2">Browsird 100mg</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+  <button class="btn btn-primary m-3 mt-3 p-2" type="button">
+    <i class="fa fa-check"></i>
+    valider </button>
+</div>
