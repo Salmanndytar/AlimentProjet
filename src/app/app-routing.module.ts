@@ -14,6 +14,7 @@ import {PasswordComponent} from "./pages/password/password.component";
 import {RepasComponent} from "./pages/page-repas/repas/repas.component";
 import {CosommerComponent} from "./composant/cosommer/cosommer.component";
 import {PageTacheComponent} from "./pages/page-tache/page-tache.component";
+import {PagePatientComponent} from "./pages/page-patient/page-patient.component";
 
 
 const routes: Routes = [
@@ -82,7 +83,10 @@ const routes: Routes = [
             var1: 'val1',
            var2: 'val2'
           }
-
+      },
+      {
+        path : 'patient',
+        component : PagePatientComponent
       }
 
 

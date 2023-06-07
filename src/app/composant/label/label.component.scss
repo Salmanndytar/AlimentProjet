@@ -2,7 +2,7 @@
   position: relative;
 
 }
-.label-child{
+.bottom{
   border-radius: 5px;
   padding: 3px;
   position: absolute;
@@ -11,6 +11,45 @@
   top: 100%;
   left: -100%;
   right: -100%;
+  opacity: 50%;
+  background: black;
+  color: white;
+  //  margin-left: -50%;
+
+}.top{
+  border-radius: 5px;
+  padding: 3px;
+  position: absolute;
+  min-width: 300%;
+
+  bottom: 100%;
+  left: -100%;
+  right: -100%;
+  opacity: 50%;
+  background: black;
+  color: white;
+  //  margin-left: -50%;
+
+}
+
+.left{
+  border-radius: 5px;
+  padding: 3px;
+  position: absolute;
+  min-width: 400%;
+  right: 100%;
+  opacity: 50%;
+  background: black;
+  color: white;
+  //  margin-left: -50%;
+
+}
+.right{
+  border-radius: 5px;
+  padding: 3px;
+  position: absolute;
+  min-width: 300%;
+  left: 100%;
   opacity: 50%;
   background: black;
   color: white;

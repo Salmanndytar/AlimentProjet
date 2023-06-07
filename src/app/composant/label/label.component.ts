@@ -15,9 +15,12 @@ export class LabelComponent implements OnInit {
   isVisible: boolean = false;
  @Input()
   msg : String = 'mesaage';
+ @Input()
+  position : String = '';
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }

@@ -1,0 +1,68 @@
+<div class="row border-solide shadow-sm p-2 mb-3 bg-white rounded rounded d-flex ">
+  <div class="col-md-2  mt-1 mb-1  ">
+    <img src="assets/user.png" height="60" width="60px" class="rounded-circle">
+  </div>
+  <div class="col-md-4 mt-1 mb-1 flex-fill ">
+    <div class="row">
+      <div class="col flex-fill">
+        <i class="fas fa-user"></i>&nbsp;  Nom
+      </div>
+    </div>
+    <div class="row">
+      <div class="col flex-fill">
+        <i class="fas fa-user"></i>&nbsp;  Prenom
+      </div>
+    </div>
+    <div class="row">
+      <div class="colf lex-fill ">
+        <i class="fas fa-venus-mars"></i>&nbsp;  Genre
+      </div>
+    </div>
+
+  </div>
+  <!--  -->
+  <div class="col-md-3  mt-1 mb-1 border-right ">
+    <div class="row  d-flex">
+      <div class="col flex-fill">
+        <i class="fas fa-phone"></i>&nbsp;  Telephone
+      </div>
+    </div>
+    <div class="row d-flex">
+      <div class="col flex-fill">
+        <i class="fas fa-envelope"></i>&nbsp;  Email
+      </div>
+    </div>
+    <div class="row d-flex">
+      <div class="col flex-fill">
+        <i class="fas fa-ruler-vertical"></i>&nbsp;  Taille
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3  mt-1 mb-1  ">
+    <div class="row mt-4 ">
+
+      <div class="col-md-3">
+        <button class="btn btn-link color-vert label-parent" (click)="butJourciOnclick()">
+          <i class="fas fa-clipboard-list"
+             (mouseout)=" mousseout(0)" (mouseenter)="moussenter(0)"></i>
+          <app-label [isVisible] = val[0]  position="left" msg="Voir le journal"></app-label>
+        </button>
+      </div>
+      <div class="col-md-3">
+        <button class="btn btn-link label-parent " (click)="butSuiciOnclick()">
+          <i class="fas fa-file-alt"
+             (mouseout)=" mousseout(1)" (mouseenter)="moussenter(1)"></i>
+          <app-label [isVisible] = val[1]  position="left" msg="Voir detail de son dossier"></app-label>
+        </button>
+      </div>
+      <div class="col-md-3">
+        <button class="btn btn-link color-red label-parent" (click)="butDelciOnclick()" >
+          <i class="bi bi-trash3 "
+             (mouseout)=" mousseout(2)" (mouseenter)="moussenter(2)"></i>
+          <app-label [isVisible] = val[2]  position="left" msg="Mettre fin au suivi de ce patient"></app-label>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>

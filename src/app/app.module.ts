@@ -40,6 +40,9 @@ import { MenuAdminComponent } from './composant/detail-menu/menu-admin/menu-admi
 import { MenuMedecinComponent } from './composant/detail-menu/menu-medecin/menu-medecin.component';
 import { MenuDiabetiqueComponent } from './composant/detail-menu/menu-diabetique/menu-diabetique.component';
 import { MenuAutreComponent } from './composant/detail-menu/menu-autre/menu-autre.component';
+import { PagePatientComponent } from './pages/page-patient/page-patient.component';
+import { DetailPatientComponent } from './composant/detail-patient/detail-patient.component';
+import { SuiviComponent } from './composant/suivi/suivi.component';
 
 
 @NgModule({
@@ -81,6 +84,9 @@ import { MenuAutreComponent } from './composant/detail-menu/menu-autre/menu-autr
     MenuMedecinComponent,
     MenuDiabetiqueComponent,
     MenuAutreComponent,
+    PagePatientComponent,
+    DetailPatientComponent,
+    SuiviComponent,
 
   ],
     imports: [

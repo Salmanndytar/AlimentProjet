@@ -1,0 +1,45 @@
+<div class="col-md-12 card-body">
+
+  <div class="row  p-0">
+    <div class="col-md-8">
+      <h3> <i class="fas fa-list-alt color-vert"></i>&nbsp; Listes patient</h3>
+    </div>
+    <div class="col-md-4 text-end m-0">
+      <app-bouton-action></app-bouton-action>
+    </div>
+    <hr/>
+  </div>
+  <div class="row d-flex">
+    <div style="max-height: 400px; overflow-y:scroll">
+      <app-detail-patient
+        (suiviclick)="clickBtnAccor(0)"
+        (jounalclick)="clickBtnAccor(1)"
+        (deleteclick)="clickBtnAccor(2)">
+      </app-detail-patient>
+
+
+      <app-detail-patient></app-detail-patient>
+      <app-detail-patient></app-detail-patient>
+      <app-detail-patient></app-detail-patient>
+      <app-detail-patient></app-detail-patient>
+
+    </div>
+  </div>
+  <div class="row m-3 ">
+    <app-pagination></app-pagination>
+  </div>
+
+</div>
+
+  <!--  le suivi et journal -->
+    <div class="  {{position}}">
+      <div  class="accordion-collapse collapse {{show}} ">
+        <div class="col text-end me-3">
+          <button class="btn-close"  (click)="clos()"    ></button>
+        </div>
+        <div class="accordion-body m-3  " style="max-height: 400px; overflow-y:scroll" >
+          <app-suivi *ngIf="isView[0]"></app-suivi>
+          <app-journal *ngIf="isView[1]" ></app-journal>
+        </div>
+      </div>
+    </div>

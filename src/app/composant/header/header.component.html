@@ -1,4 +1,5 @@
 <div class="row ">
+  <div class="row">
   <div class=" col-md-8" >
     <div class="input-group flex-nowrap">
       <input type="text" class="form-control" placeholder="Nom aliment" aria-label="Username" aria-describedby="addon-wrapping">
@@ -8,17 +9,37 @@
 
   </div>
 <!--  Filtre-->
-  <div class="col">
+
     <div class="col-md-2 " >
       <button (click)="boutOnclick()"  class="btn label-parent " type="button"data-bs-toggle="modal" data-bs-target="#staticBackdrop" >
         <i class="bi bi-filter-square-fill color-vert  "
            (mouseout)="mousseout(9)" (mouseenter)="moussenter(9)">
         </i>
-        <app-label [isVisible] = val[9] msg="Fitre aliment " ></app-label>
+        <app-label [isVisible] = val[9] msg="Fitre aliment "  position="top" ></app-label>
       </button>
     </div>
 
-
+  <div class="col-md-2" >
+    <div class="row d-flex  justify-content-between" >
+      <div class="col-md-4 text-end mt-1 "  >
+        <button [routerLink]="['/login']"  class=" btn btn-link label-parent"> <i class="fas fa-wifi "
+          (mouseout)="mousseout(10)" (mouseenter)="moussenter(10)"></i>
+          <app-label [isVisible] = val[10] msg="Veillez s'inscrir " position="top" ></app-label>
+        </button>
+      </div>
+      <div class="col-md-4 text-end mt-1" >
+        <button [routerLink]="['/inscription']"  class="btn btn-link label-parent">   <i class="fas fa-pencil-alt "
+           (mouseout)="mousseout(11)" (mouseenter)="moussenter(11)"></i>
+          <app-label [isVisible] = val[11] msg="Veillez se connecter " position="top" ></app-label>
+        </button>
+      </div>
+      <div class="col-md-4 text-end"
+           type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+        <img src="assets/user.png" class="rounded-circle " height="35px" width="35px"/>
+      </div>
+    </div>
+  </div>
+  </div>
     <!-- Modal -->
     <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog" >
@@ -29,18 +50,18 @@
           </div>
           <div class="modal-body">
             <select class="form-select m-1" aria-label="Default select example">
-                <option value="-1">-- Filtrer les aliments par: --</option>
+              <option value="-1">-- Filtrer les aliments par: --</option>
 
-                <optgroup label="Categorie">
-                  <option>Fruit,léguimes</option>
-                  <option>Viande,vollailles-oeuf, poisson et fruits de mer. ...</option>
-                  <option>Feculents</option>
-                </optgroup>
-                <optgroup label="Index glycemie">
-                  <option>IG bas</option>
-                  <option>IG moyen</option>
-                  <option>IG elevé</option>
-                </optgroup>
+              <optgroup label="Categorie">
+                <option>Fruit,léguimes</option>
+                <option>Viande,vollailles-oeuf, poisson et fruits de mer. ...</option>
+                <option>Feculents</option>
+              </optgroup>
+              <optgroup label="Index glycemie">
+                <option>IG bas</option>
+                <option>IG moyen</option>
+                <option>IG elevé</option>
+              </optgroup>
 
 
             </select>
@@ -54,27 +75,6 @@
     </div>
   </div>
 
-  <div class="col-md-3" >
-    <div class="row " >
-      <div class="col-md-3 text-end mt-1 "  >
-        <button [routerLink]="['/login']"  class=" btn btn-link label-parent"> <i class="fas fa-wifi "
-          (mouseout)="mousseout(0)" (mouseenter)="moussenter(0)"></i>
-          <app-label [isVisible] = val[0] msg="Veillez s'inscrir " ></app-label>
-        </button>
-      </div>
-      <div class="col-md-3 text-end mt-1" >
-        <button [routerLink]="['/inscription']"  class="btn btn-link label-parent">   <i class="fas fa-pencil-alt "
-           (mouseout)="mousseout(1)" (mouseenter)="moussenter(1)"></i>
-          <app-label [isVisible] = val[1] msg="Veillez se connecter " ></app-label>
-        </button>
-      </div>
-      <div class="col-md-4 text-end"
-           type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-        <img src="assets/user.png" class="rounded-circle " height="35px" width="35px"/>
-      </div>
-    </div>
-  </div>
-</div>
 
 <!--offcanvas profil-->
 

@@ -2,24 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import {Accordion} from "../modal/Accordion";
 
 @Component({
-  selector: 'app-page-tache',
-  templateUrl: './page-tache.component.html',
-  styleUrls: ['./page-tache.component.scss']
+  selector: 'app-page-patient',
+  templateUrl: './page-patient.component.html',
+  styleUrls: ['./page-patient.component.scss']
 })
-export class PageTacheComponent implements OnInit {
+export class PagePatientComponent implements OnInit {
 
-
-  constructor(
-
-  ) { }
+  constructor() { }
 
   ngOnInit(): void {
-
   }
   isView : boolean[]= Accordion.isView ;
   show :String = '';
   position : String ='';
-  clickImg( i:number) {
+  clickBtnAccor( i:number) {
     Accordion.clickImg(i) ;
     this.position= Accordion.position;
     this.show = Accordion.show;

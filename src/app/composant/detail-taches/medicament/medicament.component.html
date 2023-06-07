@@ -34,6 +34,7 @@
              (mouseout)="mouseout(0)" (mouseenter)="moussenter(0)">
         <app-label
           msg="Ajouter nouveau médicament exemple :<<Metformine Sandoz 850mg>>"
+          position="bottom"
           [isVisible]="isVisible[0]"
         ></app-label>
       </button>
@@ -59,6 +60,7 @@
       <button class="btn p-1 me-0 text-start parent" type="button">
         <app-label
           msg="Ajouter à la liste médoc pris"
+          position="bottom"
           [isVisible]="isVisible[1]">
         </app-label>
         <i class="fa fa-check"  (mouseout)="mouseout(1)" (mouseenter)="moussenter(1)"></i>
