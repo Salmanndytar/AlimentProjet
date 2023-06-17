@@ -1,0 +1,765 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "Swagger Api documentation pour GlycemieAliment Application",
+    "version" : "0.0.1",
+    "title" : "Swagger Api documentation pour GlycemieAliment",
+    "contact" : {
+      "name" : "Salman Ndytar",
+      "url" : "#",
+      "email" : "salmanndytar@gmail.com"
+    }
+  },
+  "basePath" : "http://localhost:5003",
+  "tags" : [ {
+    "name" : "GlycemieAlimentV1aliments"
+  }, {
+    "name" : "GlycemieAlimentV1categories"
+  }, {
+    "name" : "GlycemieAlimentV1photos"
+  }, {
+    "name" : "GlycemieAlimentV1roles"
+  }, {
+    "name" : "GlycemieAlimentV1utilisateurs"
+  } ],
+  "paths" : {
+    "/GlycemieAliment/V1/aliments/all" : {
+      "get" : {
+        "tags" : [ "GlycemieAlimentV1aliments" ],
+        "summary" : "Afficher liste aliment",
+        "description" : "Mehode pour liste aliments",
+        "operationId" : "finAll",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "aliment liste ou liste [  ]",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/AlimentDto"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/GlycemieAliment/V1/aliments/allByEtatAliment/{etatAliment}" : {
+      "get" : {
+        "tags" : [ "GlycemieAlimentV1aliments" ],
+        "summary" : "Afficher liste aliment par etat",
+        "description" : "Mehode pour liste aliments par etat:[valide ou no_valide]",
+        "operationId" : "findAllByEtatAliment",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "etatAliment",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "aliment liste ou liste [  ]",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/AlimentDto"
+              }
+            }
+          },
+          "406" : {
+            "description" : "[ Le parametre n'est pas acceptable (etat) ]"
+          }
+        }
+      }
+    },
+    "/GlycemieAliment/V1/aliments/categorie/{categorieDto}" : {
+      "get" : {
+        "summary" : "[Id categorie]",
+        "description" : "Mehode pour chercher un aliment via son categorie(id)",
+        "operationId" : "finAlimentByCategorie",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "Liste aliment de categorie fournie[::::::]/ou ou liste vide[  ]",
+            "schema" : {
+              "$ref" : "#/definitions/AlimentDto"
+            }
+          },
+          "404" : {
+            "description" : "Aliment de ce categorie  fourni n'existe pas"
+          }
+        }
+      }
+    },
+    "/GlycemieAliment/V1/aliments/create" : {
+      "post" : {
+        "summary" : "Enregistrer un aliment",
+        "description" : "Mehode pour ajout et/ou modification d'un aliment",
+        "operationId" : "sav",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "l'operation de l'aliment bien effectuee ",
+            "schema" : {
+              "$ref" : "#/definitions/AlimentDto"
+            }
+          },
+          "400" : {
+            "description" : "l'aliment inseré n'est pas valide ou syntaxe incorrecte"
+          }
+        }
+      }
+    },
+    "/GlycemieAliment/V1/aliments/delete/{idAliment}" : {
+      "delete" : {
+        "tags" : [ "GlycemieAlimentV1aliments" ],
+        "summary" : "Supprimer une aliment",
+        "description" : "Mehode pour supprimer un aliment",
+        "operationId" : "delete",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "idAliment",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "l'aliment supprime",
+            "schema" : {
+              "$ref" : "#/definitions/AlimentDto"
+            }
+          }
+        }
+      }
+    },
+    "/GlycemieAliment/V1/aliments/etats/{idAliment},{etatAliment}" : {
+      "put" : {
+        "tags" : [ "GlycemieAlimentV1aliments" ],
+        "summary" : "Modifier etat d'un aliment",
+        "description" : "Mehode pour modifier etat d'un aliment\n Param:[idAlliment,valide ou no_valide]",
+        "operationId" : "updateEtatAliment",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "idAliment",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "etatAliment",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Etat modifié",
+            "schema" : {
+              "$ref" : "#/definitions/AlimentDto"
+            }
+          },
+          "404" : {
+            "description" : "l'aliment avec identifiant fourni n'existe pas"
+          }
+        }
+      }
+    },
+    "/GlycemieAliment/V1/aliments/{idAliment}" : {
+      "get" : {
+        "summary" : "Chercher un aliment",
+        "description" : "Mehode pour chercher un aliment via son identifiant(ID)",
+        "operationId" : "finById",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "l'aliment a ete trouve",
+            "schema" : {
+              "$ref" : "#/definitions/AlimentDto"
+            }
+          },
+          "404" : {
+            "description" : "l'aliment avec identifianrt fourni n'existe pas"
+          }
+        }
+      }
+    },
+    "/GlycemieAliment/V1/categories/all" : {
+      "get" : {
+        "summary" : "Afficher liste categorie",
+        "description" : "Mehode pour lister les categories",
+        "operationId" : "finAll",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "Categorie liste ou liste [  ]",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/CategorieDto"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/GlycemieAliment/V1/categories/create" : {
+      "post" : {
+        "tags" : [ "GlycemieAlimentV1categories" ],
+        "summary" : "Enregistrerment d'une categorie",
+        "description" : "Mehode pour ajout et/ou modification d'une categoie d'aliment",
+        "operationId" : "sav",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/CategorieDto"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "l'operation bien effectuee ",
+            "schema" : {
+              "$ref" : "#/definitions/CategorieDto"
+            }
+          },
+          "400" : {
+            "description" : "Categorie inseré n'est pas valide "
+          }
+        }
+      }
+    },
+    "/GlycemieAliment/V1/categories/delete/{idCategorie}" : {
+      "delete" : {
+        "tags" : [ "GlycemieAlimentV1categories" ],
+        "summary" : "Supprimer une categorie",
+        "description" : "Mehode pour supprimer une categorie",
+        "operationId" : "delete",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "idCategorie",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "la categorie supprimee",
+            "schema" : {
+              "$ref" : "#/definitions/CategorieDto"
+            }
+          }
+        }
+      }
+    },
+    "/GlycemieAliment/V1/categories/nomCategorie/{nomCategorie}" : {
+      "get" : {
+        "tags" : [ "GlycemieAlimentV1categories" ],
+        "summary" : "Chercher une categorie",
+        "description" : "Mehode pour chercher une categorie via son nom",
+        "operationId" : "ctegorieByNom",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "nomCategorie",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "la categorie a ete trouve",
+            "schema" : {
+              "$ref" : "#/definitions/CategorieDto"
+            }
+          },
+          "404" : {
+            "description" : "la categorie avec identifianrt fourni n'existe pas"
+          }
+        }
+      }
+    },
+    "/GlycemieAliment/V1/categories/{idCategorie}" : {
+      "get" : {
+        "summary" : "Chercher une categorie",
+        "description" : "Mehode pour chercher une categorie via son identifiant(ID)",
+        "operationId" : "ctegorieById",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "la categorie a ete trouve",
+            "schema" : {
+              "$ref" : "#/definitions/CategorieDto"
+            }
+          },
+          "404" : {
+            "description" : "la categorie avec identifianrt fourni n'existe pas"
+          }
+        }
+      }
+    },
+    "/GlycemieAliment/V1/photos/{id}/{title}/{context}" : {
+      "post" : {
+        "summary" : "Enregistrer une photo",
+        "description" : "Methode pour ajout d'une photo d'un objet\n Context designe nom de l'objet ex: user ",
+        "operationId" : "savePhoto",
+        "responses" : {
+          "200" : {
+            "description" : "l'operation bien effectuee ",
+            "schema" : {
+              "type" : "object"
+            }
+          },
+          "400" : {
+            "description" : "l'objet inseré n'est pas valide"
+          }
+        }
+      }
+    },
+    "/GlycemieAliment/V1/roles/all" : {
+      "get" : {
+        "tags" : [ "GlycemieAlimentV1roles" ],
+        "summary" : "Afficher liste roles",
+        "description" : "Mehode pour lister les roles",
+        "operationId" : "finAll",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "roles liste ou liste [  ]",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/RolesDto"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/GlycemieAliment/V1/roles/create/{rolesDto}" : {
+      "post" : {
+        "summary" : "Enregistrerment d'un role",
+        "description" : "Mehode pour ajout et/ou modification d'un role",
+        "operationId" : "sav",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "l'operation bien effectuee ",
+            "schema" : {
+              "$ref" : "#/definitions/RolesDto"
+            }
+          },
+          "400" : {
+            "description" : "role inseré n'est pas valide "
+          }
+        }
+      }
+    },
+    "/GlycemieAliment/V1/roles/delete/{idRole}" : {
+      "delete" : {
+        "tags" : [ "GlycemieAlimentV1roles" ],
+        "summary" : "Supprimer un role",
+        "description" : "Mehode pour supprimer un role",
+        "operationId" : "delete",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "idRole",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "le role supprimee",
+            "schema" : {
+              "$ref" : "#/definitions/RolesDto"
+            }
+          }
+        }
+      }
+    },
+    "/GlycemieAliment/V1/roles/{idRole}" : {
+      "get" : {
+        "tags" : [ "GlycemieAlimentV1roles" ],
+        "summary" : "Chercher un role",
+        "description" : "Mehode pour chercher un role via son identifiant(ID)",
+        "operationId" : "roleById",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "idRole",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "le role a ete trouve",
+            "schema" : {
+              "$ref" : "#/definitions/RolesDto"
+            }
+          },
+          "404" : {
+            "description" : "le role avec identifianrt fourni n'existe pas"
+          }
+        }
+      }
+    },
+    "/GlycemieAliment/V1/utilisateurs/all" : {
+      "get" : {
+        "summary" : "Afficher liste des utilisateurs",
+        "description" : "Mehode pour liste utlisateur",
+        "operationId" : "finAll",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "utilisateurs liste ou liste [  ]",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/UtulisateurDto"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/GlycemieAliment/V1/utilisateurs/create" : {
+      "post" : {
+        "summary" : "Enregistrer un utilisteur; objet utilisateur ajouté sans le [roles]",
+        "description" : "Mehode pour ajout et/ou modification d'un utilisateur \n Pandent l'ajout, il n'est pas autoriser le role",
+        "operationId" : "sav",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "Utilisateur bien insere",
+            "schema" : {
+              "$ref" : "#/definitions/UtulisateurDto"
+            }
+          },
+          "400" : {
+            "description" : "l'utilistaeur inseré n'est pas valide"
+          }
+        }
+      }
+    },
+    "/GlycemieAliment/V1/utilisateurs/delete/{idutilisateur}" : {
+      "delete" : {
+        "tags" : [ "GlycemieAlimentV1utilisateurs" ],
+        "summary" : "Supprimer une utilisateur",
+        "description" : "Mehode pour supprimer un utilisateur via son (id)",
+        "operationId" : "delete",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "idutilisateur",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "l'utlisateur supprime",
+            "schema" : {
+              "$ref" : "#/definitions/UtulisateurDto"
+            }
+          }
+        }
+      }
+    },
+    "/GlycemieAliment/V1/utilisateurs/mailOrTel/{mail},{tel}" : {
+      "get" : {
+        "summary" : "[mail = test@mail, tel=null]ou[mail = null, tel=1234]ou[mail = test@mail, tel=1234]",
+        "description" : "Mehode pour chercher un utilisateur via son e-mail et/ou telephone",
+        "operationId" : "findUtilisateurByMailOrTel",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "l'utilisateur a ete trouve",
+            "schema" : {
+              "$ref" : "#/definitions/UtulisateurDto"
+            }
+          },
+          "404" : {
+            "description" : "l'utilisateur avec identifianrt fourni n'existe pas"
+          }
+        }
+      }
+    },
+    "/GlycemieAliment/V1/utilisateurs/{idutilisateur}" : {
+      "get" : {
+        "tags" : [ "GlycemieAlimentV1utilisateurs" ],
+        "summary" : "Chercher un utilisateur",
+        "description" : "Mehode pour chercher un utilisateur via son identifiant(ID)",
+        "operationId" : "finById",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "idutilisateur",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "l'utilisateur a ete trouve",
+            "schema" : {
+              "$ref" : "#/definitions/UtulisateurDto"
+            }
+          },
+          "404" : {
+            "description" : "l'utilisateur avec identifianrt fourni n'existe pas"
+          }
+        }
+      }
+    },
+    "GlycemieAliment/V1/aut/authenticate" : {
+      "post" : {
+        "operationId" : "authentication",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/AuthenticationRequest"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/AuthenticationResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "AlimentDto" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "codeAlim" : {
+          "type" : "string"
+        },
+        "aliment" : {
+          "type" : "string"
+        },
+        "indexGly" : {
+          "type" : "string"
+        },
+        "chargeGly" : {
+          "type" : "string"
+        },
+        "contentGly" : {
+          "type" : "string"
+        },
+        "etatAliment" : {
+          "type" : "string",
+          "enum" : [ "VALIDE", "NO_VALIDE" ]
+        },
+        "photo" : {
+          "type" : "string"
+        },
+        "categorie" : {
+          "$ref" : "#/definitions/Categorie"
+        },
+        "creationDate" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "lastModifiedDate" : {
+          "type" : "integer",
+          "format" : "int64"
+        }
+      }
+    },
+    "AuthenticationRequest" : {
+      "type" : "object",
+      "properties" : {
+        "login" : {
+          "type" : "string"
+        },
+        "password" : {
+          "type" : "string"
+        }
+      }
+    },
+    "AuthenticationResponse" : {
+      "type" : "object",
+      "properties" : {
+        "accessToken" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Categorie" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "creationDate" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "lastModifiedDate" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "code" : {
+          "type" : "string"
+        },
+        "nomCategorie" : {
+          "type" : "string"
+        },
+        "designation" : {
+          "type" : "string"
+        }
+      }
+    },
+    "CategorieDto" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "code" : {
+          "type" : "string"
+        },
+        "nomCategorie" : {
+          "type" : "string"
+        },
+        "designation" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Roles" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "creationDate" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "lastModifiedDate" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "nom" : {
+          "type" : "string"
+        }
+      }
+    },
+    "RolesDto" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "nom" : {
+          "type" : "string"
+        },
+        "utilisateurs" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Utilisateur"
+          }
+        }
+      }
+    },
+    "Utilisateur" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "creationDate" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "lastModifiedDate" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "nom" : {
+          "type" : "string"
+        },
+        "prenom" : {
+          "type" : "string"
+        },
+        "motDePasse" : {
+          "type" : "string"
+        },
+        "photo" : {
+          "type" : "string"
+        },
+        "mail" : {
+          "type" : "string"
+        },
+        "tel" : {
+          "type" : "string"
+        },
+        "roles" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Roles"
+          }
+        }
+      }
+    },
+    "UtulisateurDto" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "nom" : {
+          "type" : "string"
+        },
+        "prenom" : {
+          "type" : "string"
+        },
+        "motDePasse" : {
+          "type" : "string"
+        },
+        "photo" : {
+          "type" : "string"
+        },
+        "mail" : {
+          "type" : "string"
+        },
+        "tel" : {
+          "type" : "string"
+        },
+        "roles" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Roles"
+          }
+        }
+      }
+    }
+  }
+}

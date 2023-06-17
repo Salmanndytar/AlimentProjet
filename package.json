@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "gly-api:swagger-gen": "ng-swagger-gen -i C:\\Users\\user\\IdeaProjects\\Monsitpr\no.com\\almtproject\\target\\swagger.json -o gly-api/src\n"
   },
   "private": true,
   "dependencies": {
@@ -23,7 +24,10 @@
     "bootstrap-icons": "^1.10.5",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.11.4"
+    "zone.js": "~0.11.4",
+    "ng-swagger-gen":"^1.7.0-b",
+    "ng-packagr": "^16.0.1"
+
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^14.2.11",
@@ -37,5 +41,6 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
     "typescript": "~4.7.2"
+
   }
 }

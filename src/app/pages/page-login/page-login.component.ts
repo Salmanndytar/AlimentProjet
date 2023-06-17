@@ -18,7 +18,7 @@ export class PageLoginComponent implements OnInit {
 
   }
   loginok(){
- console.log(  document.getElementById('email')  )
+
     this.router.navigate([''],{queryParams:{role:'admin'}});
   }
 

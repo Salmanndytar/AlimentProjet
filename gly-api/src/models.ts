@@ -1,0 +1,9 @@
+export { AlimentDto } from './models/aliment-dto';
+export { AuthenticationRequest } from './models/authentication-request';
+export { AuthenticationResponse } from './models/authentication-response';
+export { Categorie } from './models/categorie';
+export { CategorieDto } from './models/categorie-dto';
+export { RoleToUser } from './models/role-to-user';
+export { Roles } from './models/roles';
+export { SendMailDto } from './models/send-mail-dto';
+export { UtulisateurDto } from './models/utulisateur-dto';

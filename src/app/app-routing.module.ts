@@ -15,6 +15,10 @@ import {RepasComponent} from "./pages/page-repas/repas/repas.component";
 import {CosommerComponent} from "./composant/cosommer/cosommer.component";
 import {PageTacheComponent} from "./pages/page-tache/page-tache.component";
 import {PagePatientComponent} from "./pages/page-patient/page-patient.component";
+import {NouveauPatientComponent} from "./pages/nouveau-patient/nouveau-patient.component";
+import {MonSuiviComponent} from "./pages/mon-suivi/mon-suivi.component";
+import {AppGuardService} from "./services/guard/app-guard.service";
+import {CodeValidationComponent} from "./composant/code-validation/code-validation.component";
 
 
 const routes: Routes = [
@@ -31,12 +35,17 @@ const routes: Routes = [
     component : PageInscriptionComponent
   },
   {
+    path : 'codeValidation',
+    component : CodeValidationComponent
+  },
+  {
     path : 'password',
     component : PasswordComponent
   },
   {
     path : '',
     component : PageDashboardComponent,
+    canActivate : [AppGuardService],
     children : [
       {
         path : 'statistic',
@@ -54,6 +63,9 @@ const routes: Routes = [
       ,{
         path : 'journal',
         component : JournalComponent
+      },{
+        path : 'mon-suivi',
+        component : MonSuiviComponent
       },
       {
         path : 'users',
@@ -87,6 +99,10 @@ const routes: Routes = [
       {
         path : 'patient',
         component : PagePatientComponent
+      },
+      {
+        path : 'nouvau-patient',
+        component : NouveauPatientComponent
       }
 
 

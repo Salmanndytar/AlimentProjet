@@ -1,9 +1,13 @@
 <div class=" accordion  " id="accordionExampleM" *ngIf="role">
   <div class=" accordion-item  " *ngFor="let  menu  of menuProperties">
     <h2 class="card-header accordion-header  " >
-      <button class=" accordion-button no-flex-rwap  bg-white rounded text-dark " type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapseOneM'+ menu.id" aria-expanded="true" aria-controls="collapseOneM">
+      <button
+        (click)="navigate(menu.url)"
+        class=" accordion-button no-flex-rwap  bg-white rounded text-dark " type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapseOneM'+ menu.id" aria-expanded="true" aria-controls="collapseOneM">
+
         <i class="{{menu.icone}} color-vert"></i>&nbsp;&nbsp;
         <h6> {{menu.titre }}</h6>
+
       </button>
     </h2>
     <div id="collapseOneM{{menu.id}}" class=" accordion-collapse collapse" data-bs-parent="#accordionExampleM">

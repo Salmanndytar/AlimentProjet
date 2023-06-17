@@ -7,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageDashboardComponent implements OnInit {
   menu:String[]= ['col-md-1','hidden','col-md-11']
- head: String[] = [' min-height-60','shadow-sm']
   dimMenu():void{
     if (this.menu[0]=='col-md-1'){
       this.menu.splice(0,0,'col-md-3')
@@ -21,19 +20,7 @@ export class PageDashboardComponent implements OnInit {
 
     }
 }
-  dimHid():void {
-    if (this.head[0]=='min-height-60'){
-     // this.head.splice(0,0,'min-height-120')
-     // this.head.splice(1,1,'shadow-sm')
 
-    }
-
-    else{
-     // this.head.splice(0,0,'min-height-60')
-     //this.head.splice(1,1,'shadow-lg')
-       }
-
-  }
   constructor() { }
 
   ngOnInit(): void {

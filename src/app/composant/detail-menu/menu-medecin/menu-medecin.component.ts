@@ -12,13 +12,13 @@ export class MenuMedecinComponent implements OnInit {
     {
       id : '5',
       icone: 'fas fa-users-cog',
-      url : '',
-      titre : ' Suivi patient',
+      url : 'nouvau-patient',
+      titre : ' Suivi d\'un nouveau patient',
       sousMenu : [
         {
           id : '31',
           icone: 'fas fa-id-card-alt',
-          url : 'Nouvau patient(e)',
+          url : 'nouvau-patient',
           titre : 'Nouvau patient(e)'
         }
       ]
@@ -26,7 +26,7 @@ export class MenuMedecinComponent implements OnInit {
     {
       id : '6',
       icone: 'fas fa-users',
-      url : '',
+      url : 'patient',
       titre : 'Mes patiens',
       sousMenu : [
         {

@@ -53,7 +53,7 @@ export class MenuAdminComponent implements OnInit {
           id : '32',
           icone: 'fas fa-id-card-alt',
           url : '',
-          titre : 'Role(type user)'
+          titre : 'RoleDto.ts(type user)'
         },
       ]
     }

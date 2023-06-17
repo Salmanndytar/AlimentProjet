@@ -85,34 +85,22 @@ export class MenuDiabetiqueComponent implements OnInit {
       ],
     },
     {
+      id : '33',
+      icone: 'fas fa-list',
+      url : 'taches',
+      titre : 'Mes taches'
+    },
+    {
       id : '4',
       icone: 'fas fa-utensils',
       url : 'consommer',
-      titre : 'Enregistrer une consommation',
-      sousMenu : [
-        {
-          id : '21',
-          icone: 'bi bi-bookmark',
-          url : 'consommer',
-          titre : 'Nouvelle consommation'
-        }
-
-      ],
-
+      titre : 'Enregistrer une consommation'
     },
     {
       id : '6',
       icone: 'fas fa-check-square',
-      url : '',
-      titre : 'Gestion de suivi',
-      sousMenu : [
-        {
-          id : '41',
-          icone: 'fa-regular fa-heart">',
-          url : '',
-          titre : 'Activer/désactiver mon suivi'
-        }
-      ]
+      url : 'mon-suivi',
+      titre : 'Activer/désactiver mon suivi'
 
     }, {
       id : '7',

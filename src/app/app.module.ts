@@ -26,7 +26,7 @@ import { ProfilComponent } from './composant/profil/profil.component';
 import { PasswordComponent } from './pages/password/password.component';
 import { ListRepasComponent } from './pages/page-repas/list-repas/list-repas.component';
 import { RepasComponent } from './pages/page-repas/repas/repas.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { CosommerComponent } from './composant/cosommer/cosommer.component';
 import { LabelComponent } from './composant/label/label.component';
 import { PageTacheComponent } from './pages/page-tache/page-tache.component';
@@ -43,6 +43,11 @@ import { MenuAutreComponent } from './composant/detail-menu/menu-autre/menu-autr
 import { PagePatientComponent } from './pages/page-patient/page-patient.component';
 import { DetailPatientComponent } from './composant/detail-patient/detail-patient.component';
 import { SuiviComponent } from './composant/suivi/suivi.component';
+import { NouveauPatientComponent } from './pages/nouveau-patient/nouveau-patient.component';
+import { MonSuiviComponent } from './pages/mon-suivi/mon-suivi.component';
+import {HttpClientModule} from "@angular/common/http";
+import { LoadingComponent } from './composant/loading/loading.component';
+import { CodeValidationComponent } from './composant/code-validation/code-validation.component';
 
 
 @NgModule({
@@ -87,12 +92,18 @@ import { SuiviComponent } from './composant/suivi/suivi.component';
     PagePatientComponent,
     DetailPatientComponent,
     SuiviComponent,
+    NouveauPatientComponent,
+    MonSuiviComponent,
+    LoadingComponent,
+    CodeValidationComponent,
 
   ],
     imports: [
         BrowserModule,
         AppRoutingModule,
-        FormsModule
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientModule
     ],
   providers: [],
   bootstrap: [AppComponent]
