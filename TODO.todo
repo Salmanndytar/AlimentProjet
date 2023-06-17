@@ -1,0 +1,2 @@
+Creer une fonction qui sera declancher au saisie de mail afin de verifier ce-ci s'il existe sinon,
+ avec mail doublon on peut pas attribuer le role car la fonction addrol se bas sur un un seul mail

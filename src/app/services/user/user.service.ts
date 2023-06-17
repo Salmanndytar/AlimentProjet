@@ -25,7 +25,11 @@ export class UserService {
 
   }
   public valideCode(code:string,id:number):Observable<boolean>   {
-    return this.http.get<boolean>(environment.backendHost+'/GlycemieAliment/V1/code/'+code+','+id) ;
+    return this.http.get<boolean>(environment.backendHost+'/GlycemieAliment/V1/code/'+code+','+'{id}?id='+id) ;
+
+  } public rvoieCode(mail:string):Observable<string>   {
+    return this.http.get<string>(environment.backendHost+'/GlycemieAliment/V1/utilisateurs/genereCode/'+mail) ;
+
 
   }
 

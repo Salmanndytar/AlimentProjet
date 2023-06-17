@@ -56,11 +56,17 @@ export class PageInscriptionComponent implements OnInit {
 
    assignRol(){
    let roUs : RoleToUserDto = this.insFormgroup.value;
-     this.rolUsr.addRolToUser(roUs).subscribe(
+       this.rolUsr.addRolToUser(roUs).subscribe(
        {
          next: data =>{
-           alert("succesfull !!!");
-             this.router.navigate(['codeValidation'], {queryParams: {iezwx:this.id,role:this.insFormgroup.value.role }});
+             this.router.navigate(['codeValidation'],
+               {
+                 queryParams: {
+                   iezwx:this.id,
+                   role:this.insFormgroup.value.role,
+                   liam:this.insFormgroup.value.mail
+                 }
+               });
          },error : err => {
            console.log(err.messages);
          }
