@@ -1,4 +1,4 @@
 export interface Incription{
-  hid? :String,
-  nohid?: String
+  vale1? :String,
+  vale2?: String
 }

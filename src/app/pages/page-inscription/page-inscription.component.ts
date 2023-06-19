@@ -8,6 +8,7 @@ import {RoleToUserDto} from "../../../model/RoleToUserDto";
 
 
 
+
 @Component({
   selector: 'app-page-inscription',
   templateUrl: './page-inscription.component.html',
@@ -18,7 +19,10 @@ export class PageInscriptionComponent implements OnInit {
 
   insFormgroup! : FormGroup;
    usr! : UserDto;
-
+   errForma!: any;
+   codeErreu!: any;
+   controPan1: boolean = true;
+   loading: boolean = false;
 
 
 
@@ -32,7 +36,6 @@ export class PageInscriptionComponent implements OnInit {
 
   ngOnInit(): void {
    this.groupControl();
-
   }
   code(): void{
 
@@ -53,7 +56,16 @@ export class PageInscriptionComponent implements OnInit {
        code:this.fb.control(null)
     }) ;
   }
-
+    contrPanel1():void{
+   this.controPan1 = this.insFormgroup.value.nom == null ||
+     this.insFormgroup.value.prenom == null ||
+     this.insFormgroup.value.mail == null ||
+     this.insFormgroup.value.motDePasse == null ||
+     this.insFormgroup.value.nom == "" ||
+     this.insFormgroup.value.prenom == "" ||
+     this.insFormgroup.value.mail == "" ||
+     this.insFormgroup.value.motDePasse == "";
+  }
    assignRol(){
    let roUs : RoleToUserDto = this.insFormgroup.value;
        this.rolUsr.addRolToUser(roUs).subscribe(
@@ -82,22 +94,45 @@ export class PageInscriptionComponent implements OnInit {
             this.id= data.id;
             this.assignRol()
           },error : err => {
-          console.log(err.messages);
+          console.log(err.error);
           }
         }
       ) ;
   }
 
+  checkMail(mail:string){
+    let ser: string;
+      this.loading = true;
+    this.user.chekMail(this.insFormgroup.value.mail).subscribe({
+      next : data =>{
+
+      } ,error :err => {
+        this.loading =false;
+         // if (err.error.errors) this.errForma = true; else this.errForma = false;
+         // if (err.error.code) this.codeErreu = false; else this.codeErreu =true ;
+         this.errForma = !!err.error.errors;
+         this.codeErreu = !err.error.code;
+
+        let value: number =1;
+        if (!this.errForma && !this.codeErreu){
+          this.level.splice(value-1,value-1, false);
+          this.level.splice(value,value, true);
+        }
+      }
+    });
+  }
   level : boolean[]=[true,false,false,false,false];
   next(value: number) {
-    if (value ===2 && this.insFormgroup.value.role==='medecin' ) {
-      value =value+1;
-      this.level.splice(value-2,value-2, false)
+    this.contrPanel1();
+    if (value ===1 && this.insFormgroup.value.mail !==null){
+     this.checkMail(this.insFormgroup.value.maill) ;
+    } else {
+      if (value ===2 && this.insFormgroup.value.role==='medecin' ) {
+        value =value+1;
+        this.level.splice(value-2,value-2, false)
+      }
+      this.level.splice(value-1,value-1, false);
+      this.level.splice(value,value, true);
     }
-
-    this.level.splice(value-1,value-1, false);
-    this.level.splice(value,value, true);
-
   }
-
 }

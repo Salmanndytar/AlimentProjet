@@ -4,6 +4,7 @@ import {Observable} from "rxjs";
 import {UserDto} from "../../../model/UserDto";
 import {environment} from "../../../environments/environment";
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -29,8 +30,8 @@ export class UserService {
 
   } public rvoieCode(mail:string):Observable<string>   {
     return this.http.get<string>(environment.backendHost+'/GlycemieAliment/V1/utilisateurs/genereCode/'+mail) ;
-
-
   }
-
+  public chekMail(mail:string):Observable<any>   {
+    return this.http.get<String>(environment.backendHost+'/GlycemieAliment/V1/utilisateurs/checkMail/'+mail) ;
+  }
 }
