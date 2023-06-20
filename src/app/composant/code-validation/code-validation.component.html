@@ -10,7 +10,6 @@
             <div class="mb-3 bg-info p-3" style="opacity: 0.7; fill-opacity: 0">
               <span > Veuillez saisir le code validation envoyé sur votre mail. Veuillez ne pas oublier de verifier votre <span style="color:red;font-weight : bold">spam</span>. Il est possible de recevoir l'e-mail evec retard. </span>
             </div>
-                {{msg}}
             <input  type="number" class="form-control" formControlName="code" placeholder="code validation" (keydown)="code()">
             <div class="mb-3 d-flex justify-content-end">
               <button type="button" class="btn btn-warning m-1 " (click)="renvoieCode()" >

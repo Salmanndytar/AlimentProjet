@@ -9,6 +9,7 @@ import {RoleToUserDto} from "../../../model/RoleToUserDto";
 
 
 
+
 @Component({
   selector: 'app-page-inscription',
   templateUrl: './page-inscription.component.html',
@@ -23,6 +24,8 @@ export class PageInscriptionComponent implements OnInit {
    codeErreu!: any;
    controPan1: boolean = true;
    loading: boolean = false;
+   errpwdConf:boolean = false;
+   btnRole:boolean = true;
 
 
 
@@ -49,9 +52,9 @@ export class PageInscriptionComponent implements OnInit {
       motDePasse :this.fb.control(null,[Validators.required]),
        motdepasse2 :this.fb.control(null),
        role :this.fb.control(null),
-       taille :this.fb.control(0),
+       taille :this.fb.control(null),
        sexe:this.fb.control(null),
-       poids:this.fb.control(0),
+       poids:this.fb.control(null),
        etat:this.fb.control(false),
        code:this.fb.control(null)
     }) ;
@@ -65,6 +68,9 @@ export class PageInscriptionComponent implements OnInit {
      this.insFormgroup.value.prenom == "" ||
      this.insFormgroup.value.mail == "" ||
      this.insFormgroup.value.motDePasse == "";
+  }
+  controlPenel2(){
+    this.btnRole = this.insFormgroup.value.role == null || this.insFormgroup.value.rol =="";
   }
    assignRol(){
    let roUs : RoleToUserDto = this.insFormgroup.value;
@@ -93,6 +99,7 @@ export class PageInscriptionComponent implements OnInit {
           next: data =>{
             this.id= data.id;
             this.assignRol()
+           // this.insFormgroup.reset();
           },error : err => {
           console.log(err.error);
           }
@@ -100,21 +107,26 @@ export class PageInscriptionComponent implements OnInit {
       ) ;
   }
 
-  checkMail(mail:string){
-    let ser: string;
+  checkMail(){
       this.loading = true;
     this.user.chekMail(this.insFormgroup.value.mail).subscribe({
       next : data =>{
-
+                     if (data) {
+                       alert('Cet email est deja utilisé par un compte !!! ');
+                       this.loading = false;
+                       if(this.errForma) this.errForma = false;
+                       if (this.errpwdConf)  this.errpwdConf = false;
+                     }
       } ,error :err => {
         this.loading =false;
          // if (err.error.errors) this.errForma = true; else this.errForma = false;
          // if (err.error.code) this.codeErreu = false; else this.codeErreu =true ;
          this.errForma = !!err.error.errors;
          this.codeErreu = !err.error.code;
+         this.errpwdConf = this.insFormgroup.value.motDePasse != this.insFormgroup.value.motdepasse2;
 
         let value: number =1;
-        if (!this.errForma && !this.codeErreu){
+        if (!this.errForma && !this.codeErreu && !this.errpwdConf){
           this.level.splice(value-1,value-1, false);
           this.level.splice(value,value, true);
         }
@@ -125,7 +137,7 @@ export class PageInscriptionComponent implements OnInit {
   next(value: number) {
     this.contrPanel1();
     if (value ===1 && this.insFormgroup.value.mail !==null){
-     this.checkMail(this.insFormgroup.value.maill) ;
+     this.checkMail() ;
     } else {
       if (value ===2 && this.insFormgroup.value.role==='medecin' ) {
         value =value+1;

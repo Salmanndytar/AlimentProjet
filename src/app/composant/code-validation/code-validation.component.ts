@@ -47,7 +47,7 @@ export class CodeValidationComponent implements OnInit {
       next: data => {
         if (data) {
           this.router.navigate([''], {queryParams: {role: this.role}});
-        }
+        }else alert('code invalide ou expirer')
       }, error: err => {
         console.log(err);
       }
@@ -61,14 +61,13 @@ export class CodeValidationComponent implements OnInit {
       this.frivCode();
   }
 
-  msg!: string;
    errMessage!: string;
   loadin: boolean=false;
   renvoieCode() {
     this.loadin =true;
      this.usr.rvoieCode(this.mail).subscribe({
         next : data =>{
-               this.msg = data.valueOf();
+
         } ,
         error:err => {
           if (err.error.errors){
