@@ -19,6 +19,7 @@ import {NouveauPatientComponent} from "./pages/nouveau-patient/nouveau-patient.c
 import {MonSuiviComponent} from "./pages/mon-suivi/mon-suivi.component";
 import {AppGuardService} from "./services/guard/app-guard.service";
 import {CodeValidationComponent} from "./composant/code-validation/code-validation.component";
+import {NewPwdComponent} from "./pages/password/new-pwd/new-pwd.component";
 
 
 const routes: Routes = [
@@ -41,6 +42,10 @@ const routes: Routes = [
   {
     path : 'password',
     component : PasswordComponent
+  },
+  {
+    path : 'newPwd',
+    component : NewPwdComponent
   },
   {
     path : '',

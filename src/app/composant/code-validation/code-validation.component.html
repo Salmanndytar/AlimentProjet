@@ -10,7 +10,13 @@
             <div class="mb-3 bg-info p-3" style="opacity: 0.7; fill-opacity: 0">
               <span > Veuillez saisir le code validation envoyé sur votre mail. Veuillez ne pas oublier de verifier votre <span style="color:red;font-weight : bold">spam</span>. Il est possible de recevoir l'e-mail evec retard. </span>
             </div>
-            <input  type="number" class="form-control" formControlName="code" placeholder="code validation" (keydown)="code()">
+
+              <input  type="text" class="form-control {{border}}" formControlName="code" placeholder="code validation" (keyup)="code()">
+
+            <div class="mb-3 mt-3  p-1"*ngIf="codeInvalide">
+              <span class="text-danger">Code incorrecte ou expiré</span>
+            </div>
+
             <div class="mb-3 d-flex justify-content-end">
               <button type="button" class="btn btn-warning m-1 " (click)="renvoieCode()" >
                 <i class="fas fa-cog"></i>&nbsp;Renvoyer nouveau code

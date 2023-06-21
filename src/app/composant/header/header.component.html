@@ -1,17 +1,16 @@
 <div class="row ">
-  <div class="row">
-  <div class=" col-md-8" >
+  <div class="row ">
+  <div class=" col-md-6  d-flex flex-column justify-content-center " >
     <div class="input-group flex-nowrap">
       <input type="text" class="form-control" placeholder="Nom aliment" aria-label="Username" aria-describedby="addon-wrapping">
       <span class="input-group-text" id="addon-wrapping"><i class="bi bi-search"></i></span>
-
     </div>
 
   </div>
 <!--  Filtre-->
 
-    <div class="col-md-2 " >
-      <button (click)="boutOnclick()"  class="btn label-parent " type="button"data-bs-toggle="modal" data-bs-target="#staticBackdrop" >
+    <div class="col-md-2  d-flex flex-column justify-content-center " >
+      <button (click)="boutOnclick()"  class="btn label-parent text-start" type="button"data-bs-toggle="modal" data-bs-target="#staticBackdrop" >
         <i class="bi bi-filter-square-fill color-vert  "
            (mouseout)="mousseout(9)" (mouseenter)="moussenter(9)">
         </i>
@@ -19,21 +18,21 @@
       </button>
     </div>
 
-  <div class="col-md-2" >
+  <div class="col-md-4" >
     <div class="row d-flex  justify-content-between" >
-      <div class="col-md-4 text-end mt-1 "  >
-        <button [routerLink]="['/login']"  class=" btn btn-link label-parent"> <i class="fas fa-wifi "
-          (mouseout)="mousseout(10)" (mouseenter)="moussenter(10)"></i>
-          <app-label [isVisible] = val[10] msg="Veillez s'inscrir " position="top" ></app-label>
+      <div class="col-md-5 text-end mt-1 "  >
+        <button [routerLink]="['/login']"  class=" btn btn-link label-parent text-deco"> <i class="fas fa-user-plus "
+          (mouseout)="mousseout(10)" (mouseenter)="moussenter(10)"></i>&nbsp;connexion
+          <app-label [isVisible] = val[10] msg=" Veuillez se connecter" position="top" ></app-label>
         </button>
       </div>
       <div class="col-md-4 text-end mt-1" >
-        <button [routerLink]="['/inscription']"  class="btn btn-link label-parent">   <i class="fas fa-pencil-alt "
-           (mouseout)="mousseout(11)" (mouseenter)="moussenter(11)"></i>
-          <app-label [isVisible] = val[11] msg="Veillez se connecter " position="top" ></app-label>
+        <button [routerLink]="['/inscription']"  class="btn btn-link label-parent text-deco">   <i class="fas fa-pencil-alt "
+           (mouseout)="mousseout(11)" (mouseenter)="moussenter(11)"></i>&nbsp;S'incrire
+          <app-label [isVisible] = val[11] msg="Veuillez s'inscrir " position="top" ></app-label>
         </button>
       </div>
-      <div class="col-md-4 text-end"
+      <div class="col-md-3 text-end  d-flex flex-column justify-content-center"
            type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
         <img src="assets/user.png" class="rounded-circle " height="35px" width="35px"/>
       </div>

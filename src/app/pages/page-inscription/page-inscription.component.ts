@@ -80,9 +80,9 @@ export class PageInscriptionComponent implements OnInit {
              this.router.navigate(['codeValidation'],
                {
                  queryParams: {
-                   iezwx:this.id,
                    role:this.insFormgroup.value.role,
-                   liam:this.insFormgroup.value.mail
+                   liam:this.insFormgroup.value.mail,
+                   origin:'inscrioption'
                  }
                });
          },error : err => {
@@ -99,13 +99,27 @@ export class PageInscriptionComponent implements OnInit {
           next: data =>{
             this.id= data.id;
             this.assignRol()
-           // this.insFormgroup.reset();
+           this.renvoieCode(this.insFormgroup.value.mail);
           },error : err => {
           console.log(err.error);
           }
         }
       ) ;
   }
+
+  renvoieCode(email:string) {
+    this.loading =true;
+    this.user.rvoieCode(email).subscribe({
+      next : data =>{
+
+      } ,
+      error:err => {
+        // if (err.error.errors || err.error.message){
+        //   alert(err.error.errors +'  '+ err.error.message);
+        // }
+        this.loading =false;
+      }
+    }) ; }
 
   checkMail(){
       this.loading = true;
@@ -141,6 +155,8 @@ export class PageInscriptionComponent implements OnInit {
     } else {
       if (value ===2 && this.insFormgroup.value.role==='medecin' ) {
         value =value+1;
+        this.insFormgroup.value.poids = 0;
+        this.insFormgroup.value.taille= 0;
         this.level.splice(value-2,value-2, false)
       }
       this.level.splice(value-1,value-1, false);

@@ -48,6 +48,7 @@ import { MonSuiviComponent } from './pages/mon-suivi/mon-suivi.component';
 import {HttpClientModule} from "@angular/common/http";
 import { LoadingComponent } from './composant/loading/loading.component';
 import { CodeValidationComponent } from './composant/code-validation/code-validation.component';
+import { NewPwdComponent } from './pages/password/new-pwd/new-pwd.component';
 
 
 @NgModule({
@@ -96,6 +97,7 @@ import { CodeValidationComponent } from './composant/code-validation/code-valida
     MonSuiviComponent,
     LoadingComponent,
     CodeValidationComponent,
+    NewPwdComponent,
 
   ],
     imports: [
