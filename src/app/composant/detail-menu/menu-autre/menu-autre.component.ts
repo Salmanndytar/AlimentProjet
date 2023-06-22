@@ -133,7 +133,7 @@ export class MenuAutreComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe(params => {
       this.valrole = params['role'];
-      if (this.valrole === 'autre') this.role = true;
+      if (this.valrole === 'non-diabetique') this.role = true;
 
     });
   }

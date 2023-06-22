@@ -9,6 +9,7 @@
         <a [routerLink]="['/login']"  class="btn shadow-sm ">&nbsp;Se connecter</a>
       </div>
     </div>
+    {{insFormgroup.value | json}}
     <div class="card-body ">
       <form [formGroup]="insFormgroup" (ngSubmit)="saveIns()">
            <div class=" accordion " id="accordionRadio">
@@ -85,7 +86,7 @@
                   <label class="form-check-label" for="inlineRadio2"  >Medecin</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio"formControlName="role" name="role" id="inlineRadio3" value="autre" (click)="controlPenel2()">
+                  <input class="form-check-input" type="radio"formControlName="role" name="role" id="inlineRadio3" value="non-diabetique" (click)="controlPenel2()">
                   <label class="form-check-label" for="inlineRadio3" >Autre</label>
                 </div>
               </div>

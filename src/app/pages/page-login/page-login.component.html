@@ -7,12 +7,12 @@
       </div>
     </div>
     <div class="card-body">
-      <form>
+      <form  [formGroup]="loFormGroup" (ngSubmit)="loginok()">
         <div class="mb-3">
-          <input type="email" class="form-control" placeholder="Email" id="email" aria-describedby="emailHelp">
+          <input type="email" class="form-control" placeholder="Email" id="email" aria-describedby="emailHelp" formControlName="login">
         </div>
         <div class="mb-3">
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="password" class="form-control" placeholder="Password" formControlName="password">
         </div>
         <div class="mb-3 d-flex justify-content-between">
           <a [routerLink]="['/password']"  class="btn shadow-sm"><i class="fas fa-spinner fa-spin"></i>&nbsp;Mot de pass oublié</a>
@@ -20,7 +20,7 @@
 <!--          <button  [routerLink]="['']"[queryParams]="{ role: 'admin' }" type="submit" class="btn btn-primary"><i class="bi bi-check2-all"></i>&nbsp;Se connecter</button>-->
         </div>
         <div class="row m-1 shadow-lg ">
-          <button  type="submit" class="btn text-gras btn-warning ">
+          <button  type="submit" class="btn text-gras btn-warning " (click)="loginok()">
             <i class="fab fa-google-plus fa-spin"></i>&nbsp;google</button>
         </div>
 

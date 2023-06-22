@@ -39,4 +39,7 @@ export class UserService {
   public changPassword(pwd:PasswordDto):Observable<PasswordDto>   {
     return this.http.post<PasswordDto>(environment.backendHost+'/GlycemieAliment/V1/utilisateurs/password', pwd) ;
   }
+  public deletUser(id?: number):Observable<any>   {
+    return this.http.delete(environment.backendHost+'/GlycemieAliment/V1/utilisateurs/delete/'+id) ;
+  }
 }
