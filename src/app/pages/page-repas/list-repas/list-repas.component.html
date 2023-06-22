@@ -1,0 +1,71 @@
+<div class="row"  *ngFor="let rep of ListRepaPropertis">
+  <div class="row border-solide shadow-sm p-2 mb-3 bg-white rounded rounded  d-flex justify-content-between  "  >
+
+    <div class="col-md-2 mt-1 mb-1 border-right ">
+      <div class="row ms-2" >
+          <h2>{{rep.nom}}</h2>
+        </div>
+      <div class="row ms-2">
+        <div class="col">
+          <i class="bi bi-info-circle color-blue"> </i>&nbsp;{{rep.type}}
+        </div>
+      </div>
+    </div>
+
+    <!--  Categoeir-->
+    <div class="col-md-9  mt-1 mb-1 border-right " >
+      <div  *ngFor="let al of rep.detailRepas">
+        <div class="row  d-flex justify-content-between " >
+          <div class="col">
+            <span class="color-vert text-gras">
+              {{al.nom}}
+            </span>
+          </div>
+          <div class="col">
+            <i class="bi bi-square-fill colr-blan-casse"></i>&nbsp;Glu: {{al.glucide}}%
+          </div>
+          <div class="col">
+            <i class="fas fa-water color-brune"></i>&nbsp;Lip: {{al.lipide}}%
+          </div>
+          <div class="col" >
+          &nbsp;   <i class="bi bi-egg-fried color-vert "> </i>&nbsp;Pro: {{al.proteine}}%
+          </div>
+          <div class="col-md-2" >
+          &nbsp; Qt: {{al.qt}}
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col  mt-1 mb-1  ">
+      <div class="row ">
+
+
+          <button class="btn btn-link color-vert"><i class="bi bi-pencil-fill" ></i></button>
+
+
+          <button class="btn btn-link color-red" ><i class="bi bi-trash3 "></i></button>
+
+
+          <button class="btn btn-link color-vert">
+            <i class="fas fa-utensils"></i>
+          </button>
+
+      </div>
+    </div>
+    <div class="row m-3 shadow-lg">
+      <div class="col-md-4">
+
+        Glucide: {{glucide}}
+      </div>
+      <div class="col-md-4">
+        proteine: {{protein}}
+      </div>
+      <div class="col-md-4">
+        Lipide: {{lipid}}
+      </div>
+    </div>
+
+</div>
+</div>

@@ -1,0 +1,23 @@
+<div class="col-md-12 card-body">
+
+  <div class="row  p-0">
+    <div class="col-md-8">
+      <h3><i class="fas fa-list-alt color-vert"></i>&nbsp; Mes repas</h3>
+    </div>
+    <div class="col-md-4 text-end m-0">
+      <app-bouton-action [isDownloadVisible]="false" [isAploadVisible]="false">
+      </app-bouton-action>
+    </div>
+  </div>
+  <hr/>
+  <div class="row d-flex">
+    <div style="max-height: 400px; overflow-y:scroll">
+      <app-list-repas  ></app-list-repas>
+    </div>
+  </div>
+  <div class="row  ">
+    <app-pagination></app-pagination>
+  </div>
+</div>
+
+

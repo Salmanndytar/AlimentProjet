@@ -1,0 +1,79 @@
+<div class="m-3" *ngIf="searchFormGroup " >
+  <form [formGroup]="searchFormGroup" (ngSubmit)="submit()" *ngIf="users | async " >
+    <div class="input-group">
+      <label class="input-group-text">User name: </label>
+      <input   type="text" formControlName="kyword" class="form-control" >
+      <button class="btn btn-outline-info" >Searche</button>
+    </div>
+  </form>
+</div>
+
+<ng-container *ngIf="users | async as listuser; else failurOrLoading"  >
+  <div class="row border-solide shadow-sm p-2 mb-3 bg-white rounded rounded d-flex " *ngFor="let us of users | async">
+    <div class="col-md-2  mt-1 mb-1  ">
+      <img src="assets/user.png" height="65" width="60px" class="rounded-circle">
+    </div>
+    <div class="col-md-4 mt-1 mb-1 flex-fill ">
+      <div class="row">
+        <div class="col flex-fill">
+          <i class="fas fa-user"></i>&nbsp;  {{us.nom}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col flex-fill">
+          <i class="fas fa-user"></i>&nbsp;  {{us.prenom}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="colf lex-fill ">
+          <i class="fas fa-id-card-alt" >   </i>
+          <span *ngFor="let r of us.roles">
+              {{r.rolenom+  '  '}}
+          </span>
+        </div>
+      </div>
+
+    </div>
+    <!--  -->
+    <div class="col-md-3  mt-1 mb-1 border-right ">
+      <div class="row  d-flex">
+        <div class="col flex-fill">
+          <i class="fas fa-phone"></i>&nbsp;  {{us.tel}}
+        </div>
+      </div>
+      <div class="row d-flex">
+        <div class="col flex-fill">
+          <i class="fas fa-envelope"></i>&nbsp;  {{us.mail}}
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3  mt-1 mb-1  ">
+      <div class="row mt-4 ">
+
+        <div class="col-md-3">
+          <button class="btn btn-link color-vert"><i class="bi bi-pencil-fill"></i></button>
+        </div>
+        <div class="col-md-3">
+          <button class="btn btn-link color-red" (click)="delete(us)" ><i class="bi bi-trash3 "></i></button>
+        </div>
+        <div class="col-md-3">
+          <!-- Button trigger modal -->
+          <button class="btn btn-link "><i class="bi bi-list" ></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<ng-template #failurOrLoading >
+  <ng-container *ngIf="errMessage ; else loading">
+    <div class="row m-3  min-height-body text-center" >
+     <span> {{errMessage}}</span>
+    </div>
+
+  </ng-container>
+  <ng-template #loading>
+   <app-loading></app-loading>
+
+  </ng-template>
+
+</ng-template>

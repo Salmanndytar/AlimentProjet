@@ -1,0 +1,249 @@
+
+
+<div class="colo-md-12  " id="collapsePrTreeId">
+  <div class="row shadow-sm m-3">
+    <div class="col-md-11  ">
+      <div >
+        <h1>  <i class="fas fa-utensils color-vert"></i>&nbsp;&nbsp;Enregistrer une consommation</h1>
+
+      </div>
+    </div>
+    <hr/>
+    <div class="row m-1 ">
+      <div class="col-md-3  " >
+        <button type="button" class="btn btn-primary label-parent " (click)="optionOne()"
+                (mouseout)="mousseout(0)" (mouseenter)="moussenter(0)">
+          <app-label [isVisible] = val[0] position="bottom"  msg="Selectionner un aliment"></app-label>
+          Liste aliment
+        </button>
+      </div>
+      <div class="col-md-3 ">
+        <button type="button" class="btn btn-primary  label-parent" (click)="optionTwo()"
+          (mouseout)="mousseout(1)" (mouseenter)="moussenter(1)">
+          <app-label [isVisible] = val[1]  position="bottom" msg="Selectionner un repas"></app-label>
+          List repas</button>
+      </div>
+      <div class="col-md-3 mb-1 ">
+        <input class="form-control form-control-sm m-1" type="date" placeholder="Nom repas" aria-label=".form-control-sm example">
+      </div>
+
+    </div>
+  </div>
+  <!--  Ligne pour composition repas-->
+  <div class="shadow-sm row m-3">
+    <div class="  col m-3  text-center ">
+      <h4> Liste nouvel aliments ajoutes</h4>
+    </div>
+    <div class="md-12">
+      <div class=" shadow-lg  row m-2  ">
+        <div class="col-md-6 mt-1">
+        nom aliment
+        </div>
+        <div class="col-md-3 mt-1 ">
+          Quantite
+        </div>
+        <div class="col-md-3  text-end ">
+          <button type="button" class="btn color-blue  label-parent">
+            <i class="bi bi-pencil-fill"
+               (mouseout)=" mousseout(2)" (mouseenter)="moussenter(2)"></i>
+            <app-label [isVisible] = val[2]  position="top" msg="Modifier"></app-label>
+          </button>
+      </div>
+      </div>
+      <hr/>
+      <div class="   row  ">
+        <div class="col-md-12 mt-5 mb-5 p-2 text-center  ">
+<!--          space pour bien pouvoir afficher la list-->
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col  text-end">
+      <button type="button" class="btn btn-primary m-3"> <i class="bi bi-check-all"></i> &nbsp;Enregistrer</button>
+      <button type="button" class="btn btn-danger m-3"><i class="bi bi-x-circle-fill"></i> &nbsp;Annuler</button>
+
+    </div> <hr/>
+  </div>
+
+  <!--  Bouton valider/annuler-->
+  <div class="row  m-3 ">
+    <!-- Button trigger modal -->
+<!--    <div class="col-md-5">-->
+<!--      <div class="rowaccordion-header " id="headingTreeId">-->
+<!--        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTreeId" aria-expanded="false" aria-controls="collapseTreeId" >-->
+<!--          <i class="fas fa-plus-circle color-vert"></i>&nbsp;-->
+<!--          Ajouter aliment</button>-->
+<!--      </div>-->
+<!--    </div>-->
+
+  </div>
+
+  <div class="accordion-item {{isPositionApsolite[0]}} ">
+
+    <div id="collapseTreeId" class="accordion-collapse collapse {{isShow[0]}} " aria-labelledby="headingTreeId" data-bs-parent="#collapsePrTreeId">
+      <div class="col text-end me-3 ">
+        <button type="button" class="btn-close " (click)="clos()"></button>
+      </div>
+      <div class="accordion-body m-3 "  style="max-height: 480px; overflow-y:scroll">
+
+        <app-detail-repas></app-detail-repas>
+        <app-detail-repas></app-detail-repas>
+        <app-detail-repas></app-detail-repas>
+        <app-detail-repas></app-detail-repas>
+        <app-detail-repas></app-detail-repas>
+        <app-detail-repas></app-detail-repas>
+        <app-detail-repas></app-detail-repas>
+        <app-detail-repas></app-detail-repas>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item {{isPositionApsolite[1]}} ">
+
+    <div id="collapseTreeId2" class="accordion-collapse collapse {{isShow[1]}} " aria-labelledby="headingTreeId" data-bs-parent="#collapsePrTreeId">
+      <div class="col text-end me-3 ">
+        <button type="button" class="btn-close " (click)="clos()"></button>
+      </div>
+      <div class="accordion-body m-3 "  style="max-height: 480px; overflow-y:scroll">
+
+        <app-list-repas></app-list-repas>
+        <app-list-repas></app-list-repas>
+        <app-list-repas></app-list-repas>
+        <app-list-repas></app-list-repas>
+        <app-list-repas></app-list-repas>
+        <app-list-repas></app-list-repas>
+      </div>
+    </div>
+  </div>
+
+<!-- Modal pour quantie aliment du repas  -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Quantite aliment</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!--        L'entete -->
+        <div class="row ">
+          <div class="col-md-2 m-3 text-end " >
+            <img src="../../assets/Artichaut.jpg" height="100px" width="150px">
+          </div>
+          <div class="col-md-7 m-3 mt-8  text-center">
+            <h3>Definir une quantite</h3>
+          </div>
+        </div>
+
+        <div class="row m-3 ">
+          <div class=" accordion " id="accordionOption">
+            <div class=" border-non accordion-item  p-1  " >
+              <button class="accordion-button shadow-sm p-2 mb-3 bg-white rounded text-dark " type="button" data-bs-toggle="collapse" data-bs-target="#collapseOptionOne" aria-expanded="true" aria-controls="collapseOptionOne">
+                <h3>
+                  <i class="fas fa-hand-pointer"></i>&nbsp;&nbsp;Choisir une quantite
+                </h3>
+              </button>
+
+              <div id="collapseOptionOne" class="accordion-collapse collapse" data-bs-parent="#accordionOption" style="max-height: 300px; overflow-y:scroll">
+                <div class="accordion-body border-solide">
+                  <!-- jounale/info-->
+                  <div class="row   bg-white d-flex text-center ">
+
+                    <div class="col-md-3  mt-1 mb-1  ">
+                      <div class="row  m-3">
+                        <div class="col flex-fill">
+
+                          <img src="../../assets/Artichaut.jpg" height="60px" width="60px" type="button">
+                          &nbsp;&nbsp;100 g
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3  mt-1 mb-1  ">
+                      <div class="row  m-3">
+                        <div class="col flex-fill">
+                          <img src="../../assets/Artichaut.jpg" height="60px" width="60px" type="button">
+                          &nbsp;&nbsp;50 g
+                        </div>
+                      </div>
+                    </div>
+                    <!---->
+                    <div class="col-md-3  mt-1 mb-1  ">
+                      <div class="row  m-3">
+                        <div class="col flex-fill">
+                          <img src="../../assets/Artichaut.jpg" height="60px" width="60px" type="button">
+                          &nbsp;&nbsp;25 g
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <!--          duxieme option-->
+
+
+            <div class=" border-non accordion-item  p-1  " >
+              <button class="accordion-button shadow-sm p-2 mb-3 bg-white rounded text-dark " type="button" data-bs-toggle="collapse" data-bs-target="#collapseOptionTwo" aria-expanded="true" aria-controls="collapseOptionTwo">
+                <h3>
+                  <i class="fas fa-pencil-alt"></i>&nbsp;&nbsp;Definir une quantite manuellement
+                </h3>
+              </button>
+
+              <div id="collapseOptionTwo" class="accordion-collapse collapse" data-bs-parent="#accordionOption" style="max-height: 300px; overflow-y:scroll">
+                <div class="accordion-body border-solide">
+                  <!-- jounale/info-->
+                  <div class="row   bg-white d-flex ">
+                    <div class="col-md-7 mt-1 mb-1 flex-fill ">
+                      <label>Entrer une quntité</label>  &nbsp;
+                      <input  class="text-center  " type="number" placeholder="500">&nbsp;<span>g</span>
+                    </div>
+                    <div class="col-md-4 ">
+                      <button type="button" class="btn btn-primary shadow-sm  m-1 p-1"> <i class="bi bi-check-all"></i>ok &nbsp;</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--            Troisime option -->
+            <div class=" border-non accordion-item  p-1  " >
+              <h2 class="accordion-header" id="headingTree">
+                <button class="accordion-button shadow-sm p-2 mb-3 bg-white rounded text-dark " type="button" data-bs-toggle="collapse" data-bs-target="#collapseOptionTree" aria-expanded="true" aria-controls="collapseOptionTree">
+                  <h3>  <i class="fas fa-camera-retro"></i>&nbsp;&nbsp;Definir une quantite automatiquement</h3>
+                </button>
+              </h2>
+
+              <div id="collapseOptionTree" class="accordion-collapse collapse"aria-labelledby="#headingTree" data-bs-parent="#accordionOption" style="max-height: 300px; overflow-y:scroll">
+                <div class="accordion-body border-solide">
+                  <!-- jounale/info-->
+                  <div class="row    bg-white d-flex ">
+                    <div class="col-md-9 mt-1 mb-1 flex-fill ">
+                      <div class="row m-3">
+                        <div class="col-md-7 flex-fill bg-info" style="opacity: 0.7" height="700px" >
+                          <p class="m-4"> Texte pour expliquer comment faire de captue d'image afin de determiner une quantité d'aliment selectionné</p>
+                        </div>
+                        <div class="col-md-4 flex-fill">
+                          <img src="../../assets/camera.jpg " height =150px width="200px" type="button"  style="border-radius: 5px">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- Fin accordion parent-->
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

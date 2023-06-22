@@ -1,0 +1,64 @@
+<div class="colo-md-12 ">
+ <form>
+  <div class="row  ">
+    <div class="col-md-11 m-3 ">
+      <div class="d-flex justify-content-center" >
+        <img src="assets/user.png " type="button" class="rounded-circle m-1" width="100px" height="100px" >
+<!--        <button type="button" class="btn"><i class="far fa-image"></i></button>-->
+      </div>
+
+    </div>
+
+    <div class="row m-3">
+      <div class="col">
+        <h2 (click)="optionInfo()">  <i class="bi bi-info-circle color-blue"> </i>&nbsp;&nbsp;Informations </h2>
+      </div>
+      <div class="col text-end me-4">
+        <button class="btn shadow-sm" type="button" (click)="optionHide()">
+          <i class="fas fa-unlock-alt"></i>&nbsp;Modifier mot de passe
+        </button>
+      </div>
+
+
+
+    </div>
+
+    <div class="row  " [hidden]="hid[0]" >
+        <div class="col-md-6  " >
+          <input class="form-control form-control-sm m-1 text-center" type="text" placeholder="Nom" aria-label=".form-control-sm example">
+          <input class="form-control form-control-sm m-1 text-center" type="text" placeholder="Prénom" aria-label=".form-control-sm example">
+          <input class="form-control form-control-sm m-1 text-center" type="text" placeholder="Tétéphone" aria-label=".form-control-sm example">
+        </div>
+        <div class="col-md-6  ">
+          <input class="form-control form-control-sm m-1  p-1 text-center" type="number" placeholder="Taille en (metre)" aria-label=".form-control-sm example">
+          <select class="form-select m-1 p-1 text-center" aria-label="Default select example">
+            <option selected>Genre</option>
+            <option value="1">Masculin</option>
+            <option value="2">Feminin</option>
+          </select>
+          <select class="form-select m-1 p-1 text-center" aria-label="Default select example">
+            <option selected>Profil utilisateur</option>
+            <option value="1">Diabétique</option>
+            <option value="2">Non diabetique</option>
+          </select>
+        </div>
+      </div>
+    <div class=" parent  "[hidden]="hid[1]">
+      <div class="row child1" style="width: 94%" >
+        <input class="form-control form-control-sm m-1  p-1 text-center" type="password" placeholder="Nouveau mot de passe" aria-label=".form-control-sm example">
+        <input class="form-control form-control-sm m-1  p-1 text-center" type="password" placeholder="Confirmer mot de passe" aria-label=".form-control-sm example">
+      </div>
+      <div class="row child2 mb-1" style="width: 91%" >
+        <img src="assets/cadenas.jpg "  class="rounded-circle mt-2 mb-1 ml-2 "  height="70px" >
+      </div>
+    </div>
+
+  </div>
+  <div class="row text-end  m-3">
+    <div class="col">
+      <button type="submit" class="btn btn-primary m-3"> <i class="bi bi-check-all"></i> &nbsp;Enregistrer</button>
+      <button type="reset" class="btn btn-danger m-3"><i class="bi bi-x-circle-fill"></i> &nbsp;Annuler</button>
+    </div>
+  </div>
+  </form>
+</div>
