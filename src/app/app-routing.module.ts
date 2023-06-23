@@ -54,7 +54,8 @@ const routes: Routes = [
     children : [
       {
         path : 'statistic',
-        component : PageStatisticComponent
+        component : PageStatisticComponent,
+       // canActivate : [AppGuardService],
       }
       ,{
         path : 'aliments',

@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {UserDto} from "../../../model/UserDto";
 import {environment} from "../../../environments/environment";
 import { PasswordDto} from "../../../model/PasswordDto";
+import {Tocken} from "../security/tocken/Tocken";
 
 
 @Injectable({
@@ -12,10 +13,13 @@ import { PasswordDto} from "../../../model/PasswordDto";
 export class UserService {
 
   constructor(
-    private http : HttpClient
+    private http : HttpClient,
+    private security : Tocken
   ) { }
+
   public users():Observable<Array<UserDto>>{
-   return  this.http.get<Array<UserDto>>(environment.backendHost+'/GlycemieAliment/V1/utilisateurs/all') ;
+
+    return  this.http.get<Array<UserDto>>(environment.backendHost+'/GlycemieAliment/V1/utilisateurs/all') ;
 
   }
   public searchUsers(kyword:string):Observable<Array<UserDto>>{

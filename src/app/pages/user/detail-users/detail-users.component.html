@@ -1,12 +1,12 @@
-<div class="m-3" *ngIf="searchFormGroup " >
-  <form [formGroup]="searchFormGroup" (ngSubmit)="submit()" *ngIf="users | async " >
-    <div class="input-group">
-      <label class="input-group-text">User name: </label>
-      <input   type="text" formControlName="kyword" class="form-control" >
-      <button class="btn btn-outline-info" >Searche</button>
-    </div>
-  </form>
-</div>
+<!--<div class="m-3" *ngIf="searchFormGroup " >-->
+<!--  <form [formGroup]="searchFormGroup" (ngSubmit)="submit()" *ngIf="users | async " >-->
+<!--    <div class="input-group">-->
+<!--      <label class="input-group-text">User name: </label>-->
+<!--      <input   type="text" formControlName="kyword" class="form-control" >-->
+<!--      <button class="btn btn-outline-info" >Searche</button>-->
+<!--    </div>-->
+<!--  </form>-->
+<!--</div>-->
 
 <ng-container *ngIf="users | async as listuser; else failurOrLoading"  >
   <div class="row border-solide shadow-sm p-2 mb-3 bg-white rounded rounded d-flex " *ngFor="let us of users | async">

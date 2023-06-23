@@ -45,10 +45,11 @@ import { DetailPatientComponent } from './composant/detail-patient/detail-patien
 import { SuiviComponent } from './composant/suivi/suivi.component';
 import { NouveauPatientComponent } from './pages/nouveau-patient/nouveau-patient.component';
 import { MonSuiviComponent } from './pages/mon-suivi/mon-suivi.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { LoadingComponent } from './composant/loading/loading.component';
 import { CodeValidationComponent } from './composant/code-validation/code-validation.component';
 import { NewPwdComponent } from './pages/password/new-pwd/new-pwd.component';
+import {HttpInterceptorService} from "./services/security/interceptor/http-interceptor.service";
 
 
 @NgModule({
@@ -107,7 +108,13 @@ import { NewPwdComponent } from './pages/password/new-pwd/new-pwd.component';
         ReactiveFormsModule,
         HttpClientModule
     ],
-  providers: [],
+   providers: [
+     {
+    provide : HTTP_INTERCEPTORS,
+    useClass : HttpInterceptorService,
+    multi : true
+  }
+     ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

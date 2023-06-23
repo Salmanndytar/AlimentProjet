@@ -3,6 +3,7 @@ import {UserDto} from "../../../../model/UserDto";
 import {UserService} from "../../../services/user/user.service";
 import {catchError, map, Observable, throwError} from "rxjs";
 import {FormBuilder, FormGroup} from "@angular/forms";
+import {HeaderComponent} from "../../../composant/header/header.component";
 
 @Component({
   selector: 'app-detail-users',
@@ -19,17 +20,13 @@ export class DetailUsersComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-     this.searchFormGroup = this.formBud.group(
-       {
-             kyword : this.formBud.control("")
-       }
-     );
+
      this.submit();
   }
 
   submit() {
-     let kw = this.searchFormGroup?.value.kyword;
-    this.users =   this.usr.searchUsers(kw).pipe(
+     let kw = HeaderComponent.kyword;
+     this.users =   this.usr.searchUsers(kw).pipe(
       catchError(err => {
         this.errMessage = 'list utilisateurs sera afficher ici';
         return throwError(err)

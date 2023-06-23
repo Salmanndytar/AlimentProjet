@@ -9,7 +9,7 @@
         <a [routerLink]="['/login']"  class="btn shadow-sm ">&nbsp;Se connecter</a>
       </div>
     </div>
-    {{insFormgroup.value | json}}
+
     <div class="card-body ">
       <form [formGroup]="insFormgroup" (ngSubmit)="saveIns()">
            <div class=" accordion " id="accordionRadio">

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {SecurityService} from "../../services/security/security.service";
+import {Tocken} from "../../services/security/tocken/Tocken";
 import {AuthenticationRequest} from "../../services/security/auth/AuthenticationRequest";
 
 @Component({
@@ -15,7 +15,7 @@ export class PageLoginComponent implements OnInit {
   constructor(
      private   router : Router,
      private  fb :FormBuilder ,
-     private security : SecurityService
+     private security : Tocken
 
 
   ) {
@@ -35,8 +35,8 @@ export class PageLoginComponent implements OnInit {
      this.authRequest =this.loFormGroup.value;
      this.security.generetTocken(this.authRequest).subscribe({
        next: data =>{
-             localStorage.setItem('authRepons',JSON.stringify(data));
-             this.router.navigate(['inscription'],{queryParams:{role:'admin'}});
+            this.security.stockTockenInLocalStorag(data);
+             this.router.navigate([''],{queryParams:{role:'admin'}});
 
        } ,
        error:err => {

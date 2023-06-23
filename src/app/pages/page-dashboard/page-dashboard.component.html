@@ -5,7 +5,6 @@
         <div class="card mt-3 mb-3 border-non">
           <button class="btn text-gras " (click)="dimMenu()">
             <h1> <i class="fas fa-bars color-vert"></i></h1>
-
           </button>
           <h3 class="text-center  "  [hidden]="menu[1]"> appli name</h3 >
         </div>
@@ -16,7 +15,9 @@
     <div class=" card {{menu[2]}} pl-0 pr-0 background-gry border-non"  >
       <div class="col pl-0 pr-0 d-flex flex-column justify-content-between" >
         <div class="card p-2 mb-2 bg-header " >
-          <app-header></app-header>
+
+          <app-header ></app-header>
+
         </div>
         <div class="card mb-2 min-height-body positision-relative ">
           <router-outlet></router-outlet>
