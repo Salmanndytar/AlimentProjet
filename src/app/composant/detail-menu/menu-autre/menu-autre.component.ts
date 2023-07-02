@@ -129,13 +129,10 @@ export class MenuAutreComponent implements OnInit {
 
   @Input()
   role : boolean = false;
-  valrole : String = '';
+  valrole? : String | null;
   ngOnInit(): void {
-    this.activatedRoute.queryParams.subscribe(params => {
-      this.valrole = params['role'];
-      if (this.valrole === 'non-diabetique') this.role = true;
-
-    });
+      this.valrole = localStorage.getItem('roles')
+      if (this.valrole?.includes('non-diabetique')) this.role = true;
   }
 
 

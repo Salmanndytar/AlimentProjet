@@ -7,21 +7,25 @@ import {AuthenticationResponse} from "../auth/AuthenticationResponse";
   providedIn: 'root'
 })
 
-export class HttpInterceptorService /*implements HttpInterceptor*/{
+export class HttpInterceptorService implements HttpInterceptor{
 
   constructor() { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     let authentificationRepons :AuthenticationResponse ={};
     if (localStorage.getItem('secret')){
-      authentificationRepons = JSON.parse(
+      authentificationRepons.accessToken = JSON.parse(
         localStorage.getItem('secret') as string
       );
+      const headers = req.headers.append('Authorization', 'Bearer '+ authentificationRepons.accessToken);
+      return next.handle(req.clone({ headers }));
+    }
+    else {
+      const headers = req.headers.append('Authorization', '');
+      return next.handle(req.clone({ headers }));
     }
 
-      const headers = req.headers.append('AUTHORIZATION', 'Bearer '+ authentificationRepons.accessToken);
 
-      return next.handle(req.clone({ headers }));
 
   //   const authRequest = req.clone({
   //     headers: new HttpHeaders( {

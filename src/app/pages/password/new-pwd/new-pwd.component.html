@@ -5,6 +5,7 @@
       <h4 >Changer mot de passe</h4>
     </div>
     <div class="card-body">
+      {{pwdFormgroup.value | json}}
       <form [formGroup]="pwdFormgroup" (ngSubmit)="valide()">
         <div  id="collapseCode" class="m-3 accordion-collapse collapse show " data-bs-parent="#accordionRadio">
 

@@ -26,6 +26,7 @@ export class PasswordComponent implements OnInit {
 ) { }
 
   ngOnInit(): void {
+    localStorage.clear();
    this.groupControl();
   }
   groupControl(){

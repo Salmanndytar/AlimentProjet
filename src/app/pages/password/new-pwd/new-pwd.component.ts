@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
-import {PasswordDto} from "../../../../model/PasswordDto";
 import {UserService} from "../../../services/user/user.service";
+import {ChangerMotdePassUtilisateurDto} from "../../../../model/ChangerMotdePassUtilisateurDto";
 
 @Component({
   selector: 'app-new-pwd',
@@ -14,7 +14,7 @@ export class NewPwdComponent implements OnInit {
   nomConforme!: boolean;
   loading!: boolean;
   mail!: string;
-  pwdDto!: PasswordDto;
+ // pwdDto!: ChangerMotdePassUtilisateurDto;
 
   constructor(
     private rout : Router,
@@ -29,13 +29,14 @@ export class NewPwdComponent implements OnInit {
     this.activatedRoute.queryParams.subscribe(params => {
       this.mail = params['liam'];
     });
+    localStorage.clear();
   }
   controlFG(){
        this.pwdFormgroup = this.fb.group({
 
-       motDepasse : this.fb.control(null,[Validators.required,Validators.minLength(3)]),
-        motDepasse1 : this.fb.control(null,[Validators.required,Validators.minLength(3)]),
-        mail : this.fb.control(null,[Validators.required,Validators.minLength(3)])
+         motDepasse : this.fb.control(null,[Validators.required,Validators.minLength(3)]),
+         motDepasse1 : this.fb.control(null,[Validators.required,Validators.minLength(3)]),
+         mail : this.fb.control(null,[Validators.required,Validators.minLength(3)])
 
        })
   }
@@ -44,11 +45,13 @@ export class NewPwdComponent implements OnInit {
     this.nomConforme = this.pwdFormgroup.value.motDepasse !== this.pwdFormgroup.value.motDepasse1;
     if (!this.nomConforme) {
       this.pwdFormgroup.value.mail = this.mail;
-      this.pwdDto = this.pwdFormgroup.value;
-      this.usr.changPassword(this.pwdDto).subscribe({
+      let pwDto : ChangerMotdePassUtilisateurDto   = this.pwdFormgroup.value;
+      console.log('mot de passe: '+pwDto.motDepasse);
+      console.log('email: '+pwDto.mail);
+      this.usr.changPassword(pwDto).subscribe({
       next: data =>{
         this.loading =false;
-        this.pwdFormgroup.reset();
+
         alert("Votre mot de passe est changet") ;
         this.rout.navigate(['login']);
       } ,error:err => {

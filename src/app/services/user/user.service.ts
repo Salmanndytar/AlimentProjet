@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {UserDto} from "../../../model/UserDto";
 import {environment} from "../../../environments/environment";
-import { PasswordDto} from "../../../model/PasswordDto";
-import {Tocken} from "../security/tocken/Tocken";
+import { ChangerMotdePassUtilisateurDto} from "../../../model/ChangerMotdePassUtilisateurDto";
+
 
 
 @Injectable({
@@ -13,8 +13,7 @@ import {Tocken} from "../security/tocken/Tocken";
 export class UserService {
 
   constructor(
-    private http : HttpClient,
-    private security : Tocken
+    private http : HttpClient
   ) { }
 
   public users():Observable<Array<UserDto>>{
@@ -23,27 +22,27 @@ export class UserService {
 
   }
   public searchUsers(kyword:string):Observable<Array<UserDto>>{
-    return  this.http.get<Array<UserDto>>(environment.backendHost+'/GlycemieAliment/V1/utilisateurs/search?kyword='+kyword);
+    return  this.http.get<Array<UserDto>>(environment.backendHost+'/AGlycemie/api/v1/utilisateurs/search?kyword='+kyword);
 
   }
   public saveUsers(usr:UserDto):Observable<UserDto>   {
-    return this.http.post<UserDto>(environment.backendHost+'/GlycemieAliment/V1/utilisateurs/create',usr) ;
+    return this.http.post<UserDto>(environment.backendHost+'/AGlycemie/api/v1/utilisateurs/create',usr) ;
 
   }
   public valideCode(code:string,mail:string):Observable<boolean>   {
-    return this.http.get<boolean>(environment.backendHost+'/GlycemieAliment/V1/code/'+code+','+'{mail}?mail='+mail) ;
+    return this.http.get<boolean>(environment.backendHost+'/AGlycemie/api/v1/auth/validerCode/'+code+','+'{mail}?mail='+mail) ;
 
   } public rvoieCode(mail:string):Observable<string>   {
-    return this.http.get<string>(environment.backendHost+'/GlycemieAliment/V1/utilisateurs/genereCode/'+mail) ;
+    return this.http.get<string>(environment.backendHost+'/AGlycemie/api/v1/auth/genereCode/'+mail) ;
   }
-  public chekMail(mail:string):Observable<any>   {
-    return this.http.get<String>(environment.backendHost+'/GlycemieAliment/V1/utilisateurs/checkMail/'+mail) ;
+  public chekMail(mail:string):Observable<boolean>   {
+    return this.http.get<boolean>(environment.backendHost+'/AGlycemie/api/v1/auth/chekMail/'+mail) ;
   }
 
-  public changPassword(pwd:PasswordDto):Observable<PasswordDto>   {
-    return this.http.post<PasswordDto>(environment.backendHost+'/GlycemieAliment/V1/utilisateurs/password', pwd) ;
+  public changPassword(pwd:ChangerMotdePassUtilisateurDto):Observable<ChangerMotdePassUtilisateurDto>   {
+    return this.http.post<ChangerMotdePassUtilisateurDto>(environment.backendHost+'/AGlycemie/api/v1/auth/password', pwd) ;
   }
   public deletUser(id?: number):Observable<any>   {
-    return this.http.delete(environment.backendHost+'/GlycemieAliment/V1/utilisateurs/delete/'+id) ;
+    return this.http.delete(environment.backendHost+'/AGlycemie/api/v1/utilisateurss/delete/'+id) ;
   }
 }

@@ -19,10 +19,13 @@ export class Tocken {
 
 
   public generetTocken(request:AuthenticationRequest):Observable<AuthenticationResponse> {
-   return this.http.post<AuthenticationResponse>(environment.backendHost+'/GlycemieAliment/V1/aut/authenticate',request);
+   return this.http.post<AuthenticationResponse>(environment.backendHost+'/AGlycemie/api/v1/auth/token',request);
   }
   public stockTockenInLocalStorag(authrepons:AuthenticationResponse){
-    localStorage.setItem('secret',JSON.stringify(authrepons));
+    localStorage.setItem('secret',JSON.stringify(authrepons.accessToken));
+    localStorage.setItem('refreshToken',JSON.stringify(authrepons.accessRefreshToken));
+    localStorage.setItem('roles',JSON.stringify(authrepons.roles));
+
   }
   public isUserConnectedAndTockonValid():boolean{
    if (localStorage.getItem('secret')){

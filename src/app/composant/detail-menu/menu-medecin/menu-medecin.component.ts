@@ -49,13 +49,12 @@ export class MenuMedecinComponent implements OnInit {
 
   @Input()
   role : boolean = false;
-  valrole : String = '';
+  valrole? : String | null;
   ngOnInit(): void {
-    this.activatedRoute.queryParams.subscribe(params => {
-      this.valrole = params['role'];
-      if (this.valrole === 'medecin') this.role = true;
 
-    });
+      this.valrole = localStorage.getItem('roles')
+      if (this.valrole?.includes('medecin')) this.role = true;
+
   }
 
   navigate(url?: String): void{

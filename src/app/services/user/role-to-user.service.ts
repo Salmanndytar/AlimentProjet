@@ -12,7 +12,7 @@ export class RoleToUserService {
 
   constructor( private http : HttpClient) { }
   public addRolToUser(roleToUser : RoleToUserDto):Observable<any>  {
-    return this.http.post<RoleToUserDto>(environment.backendHost+'/GlycemieAliment/V1/roles/AddroleToUser',roleToUser) ;
+    return this.http.post<RoleToUserDto>(environment.backendHost+'/AGlycemie/api/v1/roles/AddroleToUser',roleToUser) ;
 
   }
 }
